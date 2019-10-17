@@ -1,0 +1,31 @@
+
+
+.home{
+    height: 100%;
+    width: 100%;
+
+    .left{
+        width: 250px;
+        height: calc(100% - 60px);
+        border-right: 1px solid gray;
+        float: left;
+        box-sizing: border-box;
+        background: #fff;
+    }
+
+    .right{
+        width: calc(100% - 250px);
+        height: calc(100% - 60px);
+        float: left;
+        background: #fff;
+    }
+
+    .bottom{
+        height: 60px;
+        width: 100%;
+        clear: both;
+        box-sizing: border-box;
+        border-top: 1px solid gray;
+        background: #fff;
+    }
+}
