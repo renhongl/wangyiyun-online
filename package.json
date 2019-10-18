@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --deployUrl /wangyiyun-online/",
+    "build": "ng build --base-href /wangyiyun-online/ --deployUrl /wangyiyun-online/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
