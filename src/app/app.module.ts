@@ -4,9 +4,9 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UiModule } from './share/ui.module';
-import { HeaderComponent } from './header/header.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NavigationComponent } from './navigation/navigation.component';
+import { HeaderModule } from './header/header.module';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -16,14 +16,14 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     NavigationComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes),
-    UiModule
+    UiModule,
+    HeaderModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

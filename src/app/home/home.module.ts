@@ -11,6 +11,8 @@ import { FindMusicComponent } from '../find-music/find-music.component';
 import { PrivateFmModule } from '../private-fm/private-fm.module';
 import { PrivateFmComponent } from '../private-fm/private-fm.component';
 
+import { FooterModule } from '../footer/footer.module';
+
 const routes: Routes = [
   {
     path: '',
@@ -39,7 +41,8 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     NavigationModule,
     FindMusicModule,
-    PrivateFmModule
+    PrivateFmModule,
+    FooterModule
   ]
 })
 export class HomeModule { }

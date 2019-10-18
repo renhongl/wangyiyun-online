@@ -1,0 +1,95 @@
+.footer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    .before{
+        height: 30px;
+        width: 30px;
+        float: left;
+        margin-left: 20px;
+        border-radius: 50%;
+        background: #5bad5b;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+
+        i{
+            font-size: 20px;
+        }
+    }
+
+    .pause{
+        height: 35px;
+        width: 35px;
+        float: left;
+        margin-left: 20px;
+        border-radius: 50%;
+        background: #5bad5b;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+
+        i{
+            font-size: 20px;
+        }
+    }
+
+    .after{
+        height: 30px;
+        width: 30px;
+        float: left;
+        margin-left: 20px;
+        border-radius: 50%;
+        background: #5bad5b;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+
+        i{
+            font-size: 20px;
+        }
+    }
+
+    .time{
+        width: 50px;
+        margin-left: 30px;
+        font-size: 12px;
+    }
+
+    .time-slider{
+        width: calc(100% - 500px);
+    }
+
+    .time-total{
+        width: 50px;
+        margin-left: 30px;
+        font-size: 12px;
+    }
+
+    .volume{
+        width: 100px;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-left: 20px;
+        .volume-slider{
+            width: 100px;
+            min-width: 100px !important;
+        }
+    }
+
+    .action{
+        display: flex;
+        justify-content: space-between;
+        width: 120px;
+        padding-left: 20px;
+        padding-right: 10px;
+    }
+}

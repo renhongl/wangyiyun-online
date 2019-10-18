@@ -1,0 +1,17 @@
+.nav-selected{
+    height: 30px;
+    line-height: 30px;
+    font-size: 13px;
+    cursor: pointer;
+    padding-left: 20px;
+    border-left: 4px solid #fff;
+
+    .label{
+        margin-left: 10px;
+    }
+}
+
+.selected{
+    border-left: 4px solid #41b563;
+    background: #f3f3f3;
+}

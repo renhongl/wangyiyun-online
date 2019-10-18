@@ -1,0 +1,39 @@
+
+.mat-tab-body-wrapper{
+    height: calc(100% - 49px);
+}
+.find-music{
+    width: 100%;
+    height: 100%;
+
+    
+
+    .slide-img {
+        width: 100%;
+        height: 100%;
+    }
+    
+    [nz-carousel-content] {
+        text-align: center;
+        height: 160px;
+        line-height: 160px;
+        background: #364d79;
+        color: #fff;
+        overflow: hidden;
+        margin: 20px 0;
+      }
+    
+    .mat-tab{
+        height: 100%;
+        width: 100%;
+    }
+
+    .title{
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .card-con{
+        height: 500px;
+        width: 100%;
+    }
+}

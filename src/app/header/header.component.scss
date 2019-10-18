@@ -1,0 +1,62 @@
+.header{
+    width: 100%;
+    height: 100%;
+    color: #fff;
+
+    .logo{
+        height: 100%;
+        width: 200px;
+        display: flex;
+        align-items: center;
+        padding-left: 20px;
+        font-size: 17px;
+        float: left;
+
+        .name{
+            margin-left: 10px;
+        }
+    }
+
+    .switch-page{
+        height: 100%;
+        width: 100px;
+        float: left;
+        display: flex;
+        align-items: center;
+        margin-left: 20px;;
+
+        .before{
+            border: 1px solid grey;
+            padding: 3px 10px;
+            border-radius: 3px 0 0 3px;
+            cursor: pointer;
+        }
+        .after{
+            border: 1px solid grey;
+            padding: 3px 10px;
+            border-left: none;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer;
+        }
+    }
+    
+    .search-con{
+        height: 100%;
+        width: 20%;
+        float: left;
+        display: flex;
+        align-items: center;
+
+        input{
+            border: none;
+            background: #3131313b;
+            height: 25px;
+            border-radius: 20px;
+            outline: none;
+            padding-left: 10px;
+            color: #fff;
+            display: inline-block;
+            width: 100%;
+        }
+    }
+}

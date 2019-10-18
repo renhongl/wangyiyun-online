@@ -1,3 +1,33 @@
-<p>
-  find-music works!
-</p>
+<mat-tab-group class="find-music">
+  <mat-tab  class="find-tab" label="个性推荐">
+      <div class="example-large-box mat-elevation-z4">
+        <nz-carousel nzAutoPlay>
+            <div nz-carousel-content *ngFor="let index of array">
+              <img [src]="index" alt="">
+            </div>
+          </nz-carousel>
+          <div class="recommend-songs">
+              <div class="title">推荐歌单</div>
+              <div class="card-con">
+                <app-find-music-card></app-find-music-card>
+                <app-find-music-card></app-find-music-card>
+                <app-find-music-card></app-find-music-card>
+                <app-find-music-card></app-find-music-card>
+                <app-find-music-card></app-find-music-card>
+                <app-find-music-card></app-find-music-card>
+                <app-find-music-card></app-find-music-card>
+                <app-find-music-card></app-find-music-card>
+              </div>
+          </div>
+      </div>
+  </mat-tab>
+  <mat-tab  class="find-tab" label="歌单">歌单</mat-tab>
+  <mat-tab  class="find-tab" label="主播电台">主播电台</mat-tab>
+  <mat-tab   class="find-tab"label="排行榜">排行榜</mat-tab>
+  <mat-tab  class="find-tab" label="歌手">歌手</mat-tab>
+  <mat-tab  class="find-tab" label="最新音乐">最新音乐</mat-tab>
+
+  
+</mat-tab-group>
+
+

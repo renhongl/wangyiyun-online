@@ -2,11 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { FindMusicComponent } from './find-music.component';
+import { UiModule } from '../share/ui.module';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
-  declarations: [FindMusicComponent],
+  declarations: [FindMusicComponent, CardComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    UiModule
   ],
   exports: [FindMusicComponent]
 })

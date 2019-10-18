@@ -1,0 +1,57 @@
+.playing-preview{
+    height: 60px;
+    border-top: 1px solid #e0e0e0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    .logo{
+        width: 50px;
+        height: 50px;
+        float: left;
+        background: url(/assets/images/bg1.jpg);
+        margin: 5px;
+    }
+
+    .infor{
+        width: 140px;
+        height: 60px;
+        float: left;
+
+        .name{
+            height: 30px;
+            line-height: 30px;
+            font-size: 12px;
+        }
+
+        .author{
+            height: 30px;
+            line-height: 30px;
+            font-size: 12px;
+            color: gray;
+        }
+    }
+
+    .action{
+        width: 49px;
+        float: left;
+
+        .like{
+            display: block;
+            height: 30px;
+            line-height: 30px;
+            text-align: right;
+            padding-right: 10px;
+            color: grey;
+        }
+
+        .delete{
+            display: block;
+            height: 30px;
+            line-height: 30px;
+            text-align: right;
+            padding-right: 10px;
+            color: grey;
+        }
+    }
+}
