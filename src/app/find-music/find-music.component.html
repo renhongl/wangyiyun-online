@@ -1,10 +1,12 @@
 <mat-tab-group class="find-music">
   <mat-tab  class="find-tab" label="个性推荐">
       <div class="example-large-box mat-elevation-z4">
-        <nz-carousel nzAutoPlay>
-            <div nz-carousel-content *ngFor="let index of array" [style.background]="'url(' + index + ')'">
-            </div>
-          </nz-carousel>
+          <div class="carousel-con">
+              <nz-carousel nzAutoPlay>
+                  <div class="carousel-img" nz-carousel-content *ngFor="let index of array" [style.background]="'url(' + index + ')'">
+                  </div>
+                </nz-carousel>
+          </div>
           <div class="recommend-songs">
               <div class="title">推荐歌单</div>
               <div class="card-con">
