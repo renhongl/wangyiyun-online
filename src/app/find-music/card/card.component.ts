@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardComponent implements OnInit {
 
-  img = '/assets/images/bg1.jpg';
+  img = '/wangyiyun-online/assets/images/bg1.jpg';
 
   constructor() { }
 

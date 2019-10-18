@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FindMusicComponent implements OnInit {
 
-  array = ['/assets/images/p1.jpg', '/assets/images/p2.png', '/assets/images/p1.jpg', '/assets/images/p2.png', '/assets/images/p1.jpg', '/assets/images/p2.png'];
+  array = ['/wangyiyun-online/assets/images/p1.jpg', '/wangyiyun-online/assets/images/p2.png', '/wangyiyun-online/assets/images/p1.jpg',
+   '/wangyiyun-online/assets/images/p2.png', '/wangyiyun-online/assets/images/p1.jpg', '/wangyiyun-online/assets/images/p2.png'];
 
   constructor() { }
 
