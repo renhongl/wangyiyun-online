@@ -10,13 +10,14 @@ import { ThemeService } from './theme/theme.service';
 export class AppComponent implements OnInit{
   title = 'wangyiyun-online';
 
+  theme: any;
+
   @ViewChild('app') app;
 
   constructor(private themeService: ThemeService) {
-
+    this.theme = this.themeService.getTheme();
   }
 
   ngOnInit() {
-    this.app.nativeElement.style.background = `url(${this.themeService.getTheme().bgUrl})`;
   }
 }

@@ -2,8 +2,7 @@
   <mat-tab  class="find-tab" label="个性推荐">
       <div class="example-large-box mat-elevation-z4">
         <nz-carousel nzAutoPlay>
-            <div nz-carousel-content *ngFor="let index of array">
-              <img [src]="index" alt="">
+            <div nz-carousel-content *ngFor="let index of array" [style.background]="'url(' + index + ')'">
             </div>
           </nz-carousel>
           <div class="recommend-songs">
