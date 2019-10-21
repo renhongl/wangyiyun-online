@@ -17,6 +17,30 @@
         }
     }
 
+    .tool-bar{
+        height: 100%;
+        float: right;
+        width: 220px;
+        display: flex;
+        /* flex-direction: inherit; */
+        justify-content: space-around;
+        align-items: center;
+        font-size: 14px;
+        padding-right: 20px;
+
+        .login{
+            width: 83px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        i{
+            font-size: 16px;
+            cursor: pointer;
+        }
+    }
+
     .switch-page{
         height: 100%;
         width: 100px;

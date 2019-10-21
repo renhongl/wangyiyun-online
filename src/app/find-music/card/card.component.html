@@ -1,2 +1,15 @@
-<div class="card" [style.background]="'url(' + img + ')'">
+<div class="card" [style.background]="'url(' + song.preview + ')'">
+    <div class="love">
+        <i class="fas fa-headphones"></i>
+        <span class="love-num">{{song.love}}</span>
+    </div>
+    <div class="author">
+        <i class="far fa-user"></i>
+        <span class="autor-name">{{song.author}}</span>
+    </div>
+    <div class="infor">
+        <span class="category">{{song.category}}</span>
+        <span class="space">|</span>
+        <span class="title">{{song.title}}</span>
+    </div>
 </div>

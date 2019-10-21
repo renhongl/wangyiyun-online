@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FindMusicService } from './find-music.service';
 
 @Component({
   selector: 'app-find-music',
@@ -7,12 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FindMusicComponent implements OnInit {
 
-  array = ['/wangyiyun-online/assets/images/p1.jpg', '/wangyiyun-online/assets/images/p2.png', '/wangyiyun-online/assets/images/p1.jpg',
-   '/wangyiyun-online/assets/images/p2.png', '/wangyiyun-online/assets/images/p1.jpg', '/wangyiyun-online/assets/images/p2.png'];
+  array = ['/wangyiyun-online/assets/images/bg1.jpg', '/wangyiyun-online/assets/images/bg1.jpg', '/wangyiyun-online/assets/images/bg1.jpg',
+   '/wangyiyun-online/assets/images/bg1.jpg', '/wangyiyun-online/assets/images/bg1.jpg', '/wangyiyun-online/assets/images/bg1.jpg'];
 
-  constructor() { }
+  songs: any;
+
+  constructor(private findMusicServ: FindMusicService) { }
 
   ngOnInit() {
+    this.getSongs();
+  }
+
+  getSongs() {
+    this.findMusicServ.getSongs('all').subscribe(data => {
+      this.songs = data;
+    });
   }
 
 }

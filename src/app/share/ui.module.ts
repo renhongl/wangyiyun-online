@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule, MatSliderModule, MatTabsModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule, MatSliderModule, MatTabsModule,
+  MatPaginatorModule,
+  MatDialogModule } from '@angular/material';
 import { NzCarouselModule } from 'ng-zorro-antd';
 
 @NgModule({
@@ -13,7 +15,9 @@ import { NzCarouselModule } from 'ng-zorro-antd';
     MatIconModule,
     MatSliderModule,
     MatTabsModule,
-    NzCarouselModule
+    NzCarouselModule,
+    MatPaginatorModule,
+    MatDialogModule
   ],
   exports: [
     MatButtonModule,
@@ -22,7 +26,9 @@ import { NzCarouselModule } from 'ng-zorro-antd';
     MatIconModule,
     MatSliderModule,
     MatTabsModule,
-    NzCarouselModule
+    NzCarouselModule,
+    MatPaginatorModule,
+    MatDialogModule
   ]
 })
 export class UiModule { }

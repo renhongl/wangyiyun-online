@@ -7,6 +7,7 @@ import { UiModule } from './share/ui.module';
 import { RouterModule, Routes } from '@angular/router';
 import { NavigationComponent } from './navigation/navigation.component';
 import { HeaderModule } from './header/header.module';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -21,9 +22,10 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes, { useHash: true }),
     UiModule,
     HeaderModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
