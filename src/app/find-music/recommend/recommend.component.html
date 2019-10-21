@@ -1,0 +1,12 @@
+<div class="carousel-con">
+    <nz-carousel nzAutoPlay>
+        <div class="carousel-img" nz-carousel-content *ngFor="let index of array" [style.background]="'url(' + index + ')'">
+        </div>
+      </nz-carousel>
+</div>
+<div class="recommend-songs">
+    <div class="title">推荐歌单</div>
+    <div class="card-con">
+        <app-find-music-card *ngFor="let song of songs" [song]="song"></app-find-music-card>
+    </div>
+</div>

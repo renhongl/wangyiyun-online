@@ -4,6 +4,16 @@
     height: 100%;
     width: 100%;
 
+    .playing {
+        position: absolute;
+        left: 0;
+        top: 60px;
+        height: calc(100% - 120px);
+        width: 100%;
+        background: #fff;
+        z-index: 100;
+    }
+
     .left{
         width: 250px;
         height: calc(100% - 60px);

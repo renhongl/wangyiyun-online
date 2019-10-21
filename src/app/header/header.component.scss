@@ -3,6 +3,125 @@
     height: 100%;
     color: #fff;
 
+    .result{
+        height: 60px;
+        width: 100%;
+        padding: 5px;
+        cursor: pointer;
+
+        &:hover{
+            background: #efefef;
+        }
+
+        .index {
+            height: 50px;
+            width: 50px;
+            float: left;
+            line-height: 50px;
+            font-size: 20px;
+            text-align: center;
+            color: gray;
+        }
+
+        .index[index="0"]{
+            color: red;
+        }
+
+        .index[index="1"]{
+            color: red;
+        }
+
+        .index[index="2"]{
+            color: red;
+        }
+
+        
+
+        .infor {
+            height: 50px;
+            width: calc(100% - 50px);
+            float: left;
+            font-size: 13px;
+
+            span.name {
+                height: 25px;
+                display: inline-block;
+                height: 25px;
+                line-height: 25px;
+                font-size: 14px;
+            }
+
+            span.love {
+                display: inline-block;
+                margin-left: 20px;
+                color: #c3c3c3;
+            }
+
+            span.desc{
+                display: block;
+                color: gray;
+            }
+
+            i {
+                color: red;
+                margin-left: 10px;
+            }
+
+            .name[index="0"]{
+                font-weight: bold;
+            }
+    
+            .name[index="1"]{
+                font-weight: bold;
+            }
+    
+            .name[index="2"]{
+                font-weight: bold;
+            }
+        }
+    }
+
+    .search-list{
+        position: absolute;
+        left: 320px;
+        top: 60px;
+        width: 30%;
+        height: 70%;
+        background: #fff;
+        color: #000;
+        z-index: 100000;
+        box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.5);
+
+        .list{
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+
+            .title{
+                height: 40px;
+                line-height: 40px;
+                padding-left: 20px;
+                font-size: 15px;
+                color: #6b6b6b;
+            }
+        }
+    }
+
+    .search-list::before{
+        content: "";
+        width: 0;
+        height: 0;
+        border: 10px solid transparent;
+        border-bottom: 10px solid #fff;
+        position: absolute;
+        top: -20px;
+        left: 10px;
+    }
+
+    input.search::placeholder {
+        color: #c3c3c3;
+    }
+
     .logo{
         height: 100%;
         width: 200px;

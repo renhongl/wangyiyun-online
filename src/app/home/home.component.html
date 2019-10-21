@@ -1,7 +1,10 @@
 <div class="home">
+  <div class="playing" *ngIf="playing">
+    <app-playing (close)="closePlaying()"></app-playing>
+  </div>
   <div class="left">
     <app-nav-recommend></app-nav-recommend>
-    <app-playing-preview></app-playing-preview>
+    <app-playing-preview (open)="openPlaying()"></app-playing-preview>
   </div>
   <div class="right">
     <router-outlet></router-outlet>

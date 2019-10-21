@@ -12,6 +12,7 @@ import { PrivateFmModule } from '../private-fm/private-fm.module';
 import { PrivateFmComponent } from '../private-fm/private-fm.component';
 
 import { FooterModule } from '../footer/footer.module';
+import { PlayingModule } from '../playing/playing.module';
 
 const routes: Routes = [
   {
@@ -42,7 +43,8 @@ const routes: Routes = [
     NavigationModule,
     FindMusicModule,
     PrivateFmModule,
-    FooterModule
+    FooterModule,
+    PlayingModule
   ]
 })
 export class HomeModule { }

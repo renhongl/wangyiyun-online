@@ -1,0 +1,37 @@
+.song-page{
+    clear: both;
+}
+
+.hot-label{
+    height: 45px;
+    line-height: 45px;
+    font-size: 12px;
+    margin-top: 20px;
+
+    span{
+        width: 65px;
+        color: gray;
+        display: inline-block;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .space{
+        display: inline-block;
+        width: 20px;
+        text-align: center;
+        color: gray;
+    }
+
+    .title{
+        color: #000;
+    }
+}
+
+.card-con{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 10px;
+}

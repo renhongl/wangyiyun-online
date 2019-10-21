@@ -30,13 +30,13 @@ div, p, ol, ul{
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #5bad5b; 
+  background: rgba(128, 128, 128, 0.49); 
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #5bad5b; 
+  background: rgba(128, 128, 128, 0.49); 
 }
 
 

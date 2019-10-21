@@ -8,9 +8,6 @@ import { FindMusicService } from './find-music.service';
 })
 export class FindMusicComponent implements OnInit {
 
-  array = ['/wangyiyun-online/assets/images/bg1.jpg', '/wangyiyun-online/assets/images/bg1.jpg', '/wangyiyun-online/assets/images/bg1.jpg',
-   '/wangyiyun-online/assets/images/bg1.jpg', '/wangyiyun-online/assets/images/bg1.jpg', '/wangyiyun-online/assets/images/bg1.jpg'];
-
   songs: any;
 
   constructor(private findMusicServ: FindMusicService) { }

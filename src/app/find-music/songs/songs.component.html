@@ -1,0 +1,26 @@
+<div class="hot-label">
+    <span class="title">热门标签：</span>
+    <span>华语</span>
+    <span class="space">|</span>
+    <span>流行</span>
+    <span class="space">|</span>
+    <span>摇滚</span>
+    <span class="space">|</span>
+    <span>民谣</span>
+    <span class="space">|</span>
+    <span>电子</span>
+    <span class="space">|</span>
+    <span>轻音乐</span>
+    <span class="space">|</span>
+    <span>怀旧</span>
+  </div>
+  <div class="card-con">
+      <app-find-music-card *ngFor="let song of songs" [song]="song"></app-find-music-card>
+  </div>
+  <div class="song-page">
+      <mat-paginator [length]="100"
+        [pageSize]="25"
+        [pageSizeOptions]="[25]"
+        hidePageSize="true">
+    </mat-paginator>
+  </div>

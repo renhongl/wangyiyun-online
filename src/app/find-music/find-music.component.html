@@ -1,48 +1,12 @@
 <mat-tab-group class="find-music">
   <mat-tab  class="find-tab" label="个性推荐">
       <div class="example-large-box mat-elevation-z4">
-          <div class="carousel-con">
-              <nz-carousel nzAutoPlay>
-                  <div class="carousel-img" nz-carousel-content *ngFor="let index of array" [style.background]="'url(' + index + ')'">
-                  </div>
-                </nz-carousel>
-          </div>
-          <div class="recommend-songs">
-              <div class="title">推荐歌单</div>
-              <div class="card-con">
-                  <app-find-music-card *ngFor="let song of songs" [song]="song"></app-find-music-card>
-              </div>
-          </div>
+          <app-find-recommend [songs]="songs"></app-find-recommend>
       </div>
   </mat-tab>
   <mat-tab  class="find-tab" label="歌单">
       <div class="example-large-box mat-elevation-z4">
-          <div class="hot-label">
-            <span class="title">热门标签：</span>
-            <span>华语</span>
-            <span class="space">|</span>
-            <span>流行</span>
-            <span class="space">|</span>
-            <span>摇滚</span>
-            <span class="space">|</span>
-            <span>民谣</span>
-            <span class="space">|</span>
-            <span>电子</span>
-            <span class="space">|</span>
-            <span>轻音乐</span>
-            <span class="space">|</span>
-            <span>怀旧</span>
-          </div>
-          <div class="card-con">
-              <app-find-music-card *ngFor="let song of songs" [song]="song"></app-find-music-card>
-          </div>
-          <div class="song-page">
-              <mat-paginator [length]="100"
-                [pageSize]="25"
-                [pageSizeOptions]="[25]"
-                hidePageSize="true">
-            </mat-paginator>
-          </div>
+          <app-find-songs [songs]="songs"></app-find-songs>
       </div>
   </mat-tab>
   <mat-tab  class="find-tab" label="主播电台">主播电台</mat-tab>
