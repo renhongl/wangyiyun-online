@@ -20,7 +20,7 @@ export class FindMusicComponent implements OnInit {
   getSongs() {
     this.findMusicServ.getSongs('all').subscribe(data => {
       this.songs = data;
-      this.recommendSongs = Object.assign({}, data);
+      this.recommendSongs = Object.assign([], data);
       this.recommendSongs.length = 8;
     });
   }

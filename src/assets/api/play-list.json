@@ -1,0 +1,74 @@
+[
+    {
+        "id": "0001",
+        "name": "月光",
+        "author": "胡歌",
+        "preview": "/wangyiyun-online/assets/images/s1.jpg",
+        "source": "每日歌曲推荐",
+        "zhuanji": "一碗",
+        "lyric": "",
+        "url": "/wangyiyun-online/assets/music/0001.mp3",
+        "time": "02:25",
+        "vip": true 
+    },
+    {
+        "id": "0002",
+        "name": "月光",
+        "author": "胡歌",
+        "preview": "/wangyiyun-online/assets/images/s1.jpg",
+        "source": "每日歌曲推荐",
+        "zhuanji": "一碗",
+        "lyric": "",
+        "url": "/wangyiyun-online/assets/music/0001.mp3",
+        "time": "02:25",
+        "vip": true 
+    },
+    {
+        "id": "0003",
+        "name": "月光",
+        "author": "胡歌",
+        "preview": "/wangyiyun-online/assets/images/s1.jpg",
+        "source": "每日歌曲推荐",
+        "zhuanji": "一碗",
+        "lyric": "",
+        "url": "/wangyiyun-online/assets/music/0001.mp3",
+        "time": "02:25",
+        "vip": false
+    },
+    {
+        "id": "0004",
+        "name": "月光",
+        "author": "胡歌",
+        "preview": "/wangyiyun-online/assets/images/s1.jpg",
+        "source": "每日歌曲推荐",
+        "zhuanji": "一碗",
+        "lyric": "",
+        "url": "/wangyiyun-online/assets/music/0001.mp3",
+        "time": "02:25",
+        "vip": true
+    },
+    {
+        "id": "0005",
+        "name": "月光",
+        "author": "胡歌",
+        "preview": "/wangyiyun-online/assets/images/s1.jpg",
+        "source": "每日歌曲推荐",
+        "zhuanji": "一碗",
+        "lyric": "",
+        "url": "/wangyiyun-online/assets/music/0001.mp3",
+        "time": "02:25",
+        "vip": false
+    },
+    {
+        "id": "0006",
+        "name": "月光",
+        "author": "胡歌",
+        "preview": "/wangyiyun-online/assets/images/s1.jpg",
+        "source": "每日歌曲推荐",
+        "zhuanji": "一碗",
+        "lyric": "",
+        "url": "/wangyiyun-online/assets/music/0001.mp3",
+        "time": "02:25",
+        "vip": false
+    }
+]

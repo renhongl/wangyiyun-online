@@ -1,0 +1,117 @@
+.play-list-con {
+    width: 100%;
+    height: 100%;
+
+    .content {
+        height: calc(100% - 40px);
+        width: 100%;
+
+        .list{
+            height: 100%;
+        }
+
+        .total {
+            height: 30px;
+            line-height: 30px;
+            padding-left: 30px;
+            font-size: 12px;
+            border-bottom: 1px solid gainsboro;
+        }
+
+        .item-con{
+            height: calc(100% - 30px);
+            overflow: auto;
+
+            .item:nth-child(odd){
+                background: #fff;
+            }
+
+            .item:nth-child(even){
+                background: #fbfbfb;
+            }
+
+            .item {
+                height: 30px;
+                line-height: 30px;
+                padding: 0 10px 0 10px;
+                color: #000;
+                font-size: 13px;
+
+                .playing {
+                    display: inline-block;
+                    width: 5%;
+                    color: #7dbe7c;
+                }
+
+                span.status {
+                    margin-left: 10px;
+                    border: 1px solid red;
+                    padding: 0px 4px 0 4px;
+                    color: red;
+                    border-radius: 3px;
+                    font-size: 9px;
+                }
+
+                span.time {
+                    float: right;
+                    padding: 0 10px 0 10px;
+                }
+
+                .from {
+                    float: right;
+                    padding: 0 10px 0 10px;
+                    display: flex;
+                    padding-top: 3px;
+                    color: #cccccc;
+                    transform: rotate(-45deg);
+                }
+
+                .author {
+                    float: right;
+                }
+            }
+        }
+    }
+
+    .header {
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #f3f3f3;
+        border-bottom: 1px solid #cacaca;
+
+        .list{
+            border: 1px solid gray;
+            height: 25px;
+            line-height: 20px;
+            font-size: 12px;
+            background: #fff;
+            color: gray;
+            display: inline-block;
+            border-radius: 5px 0 0 5px;
+            width: 80px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .history{
+            border: 1px solid gray;
+            height: 25px;
+            line-height: 20px;
+            font-size: 12px;
+            background: #fff;
+            color: gray;
+            border-radius: 0 5px 5px 0;
+            display: inline-block;
+            width: 80px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .selected{
+            background: gray !important;
+            color: #fff !important;
+        }
+    }
+}

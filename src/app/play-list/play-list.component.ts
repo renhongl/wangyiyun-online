@@ -1,5 +1,5 @@
-import { Component, OnInit, Output } from '@angular/core';
-import { EventEmitter } from 'events';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { PlayListService } from './play-list.service';
 
 @Component({
   selector: 'app-play-list',
@@ -11,13 +11,27 @@ export class PlayListComponent implements OnInit {
   @Output()
   close = new EventEmitter();
 
-  constructor() { }
+  showList = true;
+  playList: any;
+
+  constructor(private playListSer: PlayListService) { }
 
   ngOnInit() {
+    this.playListSer.getPlayList().subscribe(data => {
+      this.playList = data;
+    });
   }
 
   closePlayList() {
     this.close.emit('close');
+  }
+
+  showListPage() {
+    this.showList = true;
+  }
+
+  showHistory() {
+    this.showList = false;
   }
 
 }

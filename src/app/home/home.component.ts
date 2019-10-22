@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
   }
 
   openPlayList(): void{
-    this.playList = true;
+    this.playList = !this.playList;
   }
 
   closePlayList(): void{

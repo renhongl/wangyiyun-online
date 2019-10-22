@@ -7,6 +7,6 @@ import { PlayListComponent } from './play-list.component';
   imports: [
     CommonModule
   ],
-  // exports: [PlayListComponent]
+  exports: [PlayListComponent]
 })
 export class PlayListModule { }

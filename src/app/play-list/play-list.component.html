@@ -1,3 +1,30 @@
-<p>
-  play-list works!
-</p>
+<div class="play-list-con">
+  <div class="header">
+    <button [class.selected]="showList" class="list" (click)="showListPage()">播放列表</button>
+    <button [class.selected]="!showList" class="history" (click)="showHistory()">历史记录</button>
+  </div>
+
+  <div class="content">
+    <div class="list" *ngIf="showList">
+      <div class="total">
+        总21首
+      </div>
+      <div class="item-con">
+        <div class="item" *ngFor="let item of playList;">
+          <span class="playing"><i *ngIf="item.id === '0001'" class="fas fa-headphones"></i></span>
+          <span class="name">{{item.name}}</span>
+          <span class="status" *ngIf="item.vip">SQ</span>
+          <span class="time">{{item.time}}</span>
+          <span class="from" [title]="item.source"><i class="material-icons">
+              link
+            </i></span>
+          <span class="author">花粥</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="history" *ngIf="!showList">
+
+  </div>
+</div>

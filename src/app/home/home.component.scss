@@ -40,4 +40,16 @@
         border-top: 1px solid #e0e0e0;
         background: #fff;
     }
+
+    .play-list{
+        position: absolute;
+        bottom: 60px;
+        right: 0;
+        width: 30%;
+        height: 70%;
+        z-index: 1000000;
+        background: #fff;
+        box-shadow: -2px -2px 7px rgba(0, 0, 0, 0.5);
+        overflow: auto;
+    }
 }

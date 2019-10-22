@@ -9,7 +9,7 @@ export class RecommendComponent implements OnInit {
 
   array = ['/wangyiyun-online/assets/images/p2.jpg', '/wangyiyun-online/assets/images/p3.jpg', '/wangyiyun-online/assets/images/p5.jpg'];
 
-   @Input() songs;
+  @Input() songs;
 
   constructor() { }
 

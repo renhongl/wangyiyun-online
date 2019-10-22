@@ -1,7 +1,6 @@
-import { Component, OnInit, ViewChild, OnDestroy, Output } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { FooterService } from './footer.service';
 import { interval } from 'rxjs';
-import { EventEmitter } from 'protractor';
 
 @Component({
   selector: 'app-footer',
@@ -38,7 +37,7 @@ export class FooterComponent implements OnInit, OnDestroy {
 
     this.player = this.playerRef.nativeElement;
 
-    this.volume = 0.5;
+    this.volume = 5;
 
     this.checkStatus();
   }
