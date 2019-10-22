@@ -10,6 +10,9 @@
     <router-outlet></router-outlet>
   </div>
   <div class="bottom">
-    <app-footer></app-footer>
+    <app-footer (open)="openPlayList()"></app-footer>
+  </div>
+  <div class="play-list" *ngIf="playList">
+    <app-play-list (close)="closePlayList()"></app-play-list>
   </div>
 </div>

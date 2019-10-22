@@ -9,6 +9,7 @@ import { FindMusicService } from './find-music.service';
 export class FindMusicComponent implements OnInit {
 
   songs: any;
+  recommendSongs: any;
 
   constructor(private findMusicServ: FindMusicService) { }
 
@@ -19,6 +20,8 @@ export class FindMusicComponent implements OnInit {
   getSongs() {
     this.findMusicServ.getSongs('all').subscribe(data => {
       this.songs = data;
+      this.recommendSongs = Object.assign({}, data);
+      this.recommendSongs.length = 8;
     });
   }
 

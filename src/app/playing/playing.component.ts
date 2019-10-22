@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { PlayingService } from './playing.service';
+import { FooterService } from '../footer/footer.service';
 
 @Component({
   selector: 'app-playing',
@@ -13,10 +13,10 @@ export class PlayingComponent implements OnInit {
 
   songDetail: any;
 
-  constructor(private playingSer: PlayingService) { }
+  constructor(private footerSer: FooterService) { }
 
   ngOnInit() {
-    this.playingSer.getSongDetail('0001').subscribe(data => {
+    this.footerSer.songDetail.subscribe(data => {
       this.songDetail = data;
     });
   }

@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class PlayingService {
+export class NavigationService {
 
   constructor(private http: HttpClient) { }
 

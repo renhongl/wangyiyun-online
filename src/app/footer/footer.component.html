@@ -1,46 +1,59 @@
 <div class="footer">
-  <div class="before">
-    <i class="material-icons">
-      skip_previous
+  <audio [src]="songDetail.url" #playerRef></audio>
+  <div class="control">
+    <div class="before">
+      <i class="material-icons">
+        skip_previous
       </i>
+    </div>
+
+    <div class="pause" (click)="play()">
+      <i *ngIf="!playing" class="material-icons">
+        play_arrow
+      </i>
+      <i *ngIf="playing" class="material-icons">
+        pause
+      </i>
+    </div>
+
+    <div class="after">
+      <i class="material-icons">
+        skip_next
+      </i>
+    </div>
   </div>
 
-  <div class="pause">
-    <i class="material-icons">
-      play_arrow
-      </i>
+  <div class="duration">
+    <div class="time">{{currentTime}}</div>
+
+    <mat-slider class="time-slider" color="primary" [min]="sliderMin" [max]="sliderMax" [(ngModel)]="sliderValue"
+      (change)="setCurrentTime($event)"></mat-slider>
+
+    <div class="time-total">{{duration}}</div>
   </div>
-
-  <div class="after">
-    <i class="material-icons">
-      skip_next
-      </i>
-  </div>
-
-  <div class="time">00:02</div>
-
-  <mat-slider class="time-slider" color="primary"></mat-slider>
-
-  <div class="time-total">03:26</div>
 
   <div class="volume">
-    <i class="material-icons">
+    <i *ngIf="volume === 0" class="material-icons">
+      volume_off
+    </i>
+    <i  *ngIf="volume !== 0" class="material-icons">
       volume_up
-      </i>
-      <mat-slider class="volume-slider" color="primary"></mat-slider>
+    </i>
+    <mat-slider class="volume-slider" color="primary" min="0" max="10" [(ngModel)]="volume" (change)="setVolume($event)"
+      tickInterval="10"></mat-slider>
   </div>
 
   <div class="action">
     <i class="material-icons">
       repeat_one
-      </i>
+    </i>
 
-      <i class="material-icons">
-        menu_book
-        </i>
+    <i class="material-icons">
+      menu_book
+    </i>
 
-        <i class="material-icons">
-          playlist_play
-          </i>
+    <i class="material-icons">
+      playlist_play
+    </i>
   </div>
 </div>

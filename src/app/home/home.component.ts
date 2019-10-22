@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   playing: boolean;
+  playList: boolean;
 
   constructor() { }
 
@@ -20,6 +21,14 @@ export class HomeComponent implements OnInit {
 
   closePlaying(): void{
     this.playing = false;
+  }
+
+  openPlayList(): void{
+    this.playList = true;
+  }
+
+  closePlayList(): void{
+    this.playList = false;
   }
 
 }

@@ -1,9 +1,10 @@
 {
     "id": "0001",
     "name": "月光",
-    "author": "",
+    "author": "胡歌",
     "preview": "/wangyiyun-online/assets/images/s1.jpg",
     "source": "每日歌曲推荐",
     "zhuanji": "一碗",
-    "lyric": ""
+    "lyric": "",
+    "url": "/wangyiyun-online/assets/music/0001.mp3"
 }

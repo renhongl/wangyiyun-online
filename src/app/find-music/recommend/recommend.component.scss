@@ -15,7 +15,8 @@
 
 .carousel-img {
   height: 250px !important;
-  background-size: cover;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
 }
 
 .title{

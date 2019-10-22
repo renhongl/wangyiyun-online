@@ -1,13 +1,13 @@
-<div class="playing-preview" (click)="openPlaying()">
-  <div class="logo">
+<div class="playing-preview">
+  <div class="logo" [style.background]="'url(' + songDetail.preview + ')'" (click)="openPlaying()">
 
   </div>
   <div class="infor">
     <div class="name">
-      无尽的慈悲
+      {{songDetail.name}}
     </div>
     <div class="author">
-      巫娜
+      {{songDetail.author}}
     </div>
   </div>
   <div class="action">

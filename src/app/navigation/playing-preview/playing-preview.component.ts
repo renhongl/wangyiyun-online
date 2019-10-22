@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FooterService } from '../../footer/footer.service';
 
 @Component({
   selector: 'app-playing-preview',
@@ -10,9 +11,14 @@ export class PlayingPreviewComponent implements OnInit {
   @Output()
   open = new EventEmitter();
 
-  constructor() { }
+  songDetail: any;
+
+  constructor(private footerSer: FooterService) { }
 
   ngOnInit() {
+    this.footerSer.songDetail.subscribe(data => {
+      this.songDetail = data;
+    });
   }
 
   openPlaying() {
