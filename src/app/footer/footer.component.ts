@@ -30,6 +30,11 @@ export class FooterComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.footerSer.songDetail.subscribe(data => {
       this.songDetail = data;
+      if (this.playing) {
+        this.player.oncanplay  = () => {
+          this.player.play();
+        }
+      }
     });
     this.footerSer.getSongDetail('0001').subscribe(data => {
       this.footerSer.songDetail.next(data);

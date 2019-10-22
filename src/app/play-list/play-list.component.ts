@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { PlayListService } from './play-list.service';
+import { FooterService } from '../footer/footer.service';
 
 @Component({
   selector: 'app-play-list',
@@ -13,12 +14,17 @@ export class PlayListComponent implements OnInit {
 
   showList = true;
   playList: any;
+  currentSong: any;
 
-  constructor(private playListSer: PlayListService) { }
+  constructor(private playListSer: PlayListService, private footSer: FooterService) { }
 
   ngOnInit() {
     this.playListSer.getPlayList().subscribe(data => {
       this.playList = data;
+    });
+
+    this.footSer.songDetail.subscribe(data => {
+      this.currentSong = data;
     });
   }
 
@@ -32,6 +38,13 @@ export class PlayListComponent implements OnInit {
 
   showHistory() {
     this.showList = false;
+  }
+
+  playThisMusic(item) {
+    this.footSer.getSongDetail(item.id).subscribe(data => {
+      this.footSer.songDetail.next(data);
+      this.currentSong = data;
+    });
   }
 
 }
