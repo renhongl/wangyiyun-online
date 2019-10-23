@@ -8,7 +8,11 @@ export class SongListService {
 
   constructor(private http: HttpClient) { }
 
+  // getSongList(id) {
+  //   return this.http.get(`/wangyiyun-online/assets/api/song-list-${id}.json`);
+  // }
+
   getSongList(id) {
-    return this.http.get(`/wangyiyun-online/assets/api/song-list-${id}.json`);
+    return this.http.get(`https://api.imjad.cn/cloudmusic/?type=playlist&id=${id}`);
   }
 }

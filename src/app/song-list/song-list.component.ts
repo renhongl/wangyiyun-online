@@ -24,13 +24,41 @@ export class SongListComponent implements OnInit {
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
-    this.songListSer.getSongList(id).subscribe(data => {
-      this.songList = data;
+    this.songListSer.getSongList('2958537532').subscribe(data => {
+      this.songList = this.dataAdapter(data);
     });
 
     this.footSer.songDetail.subscribe(data => {
       this.currentSong = data;
     });
+  }
+
+  dataAdapter(data) {
+    let playListData = data.playlist;
+    let ret = {
+      'img': playListData.coverImgUrl,
+      'category': playListData.name,
+      'number': playListData.trackCount,
+      'playNumber': playListData.playCount,
+      'author': playListData.creator.nickname,
+      'createDate': playListData.trackUpdateTime,
+      'label': playListData.tags,
+      'desc': playListData.description,
+      'songs': []
+    };
+    playListData.tracks.forEach(item => {
+      let temp = {
+        'id': item.id,
+        'name': item.name,
+        'author': item.ar[0].name,
+        'zhuanji': item.al.name,
+        'time': item.m.size,
+        'vip': true,
+        playCount: item.playCount
+      };
+      ret.songs.push(temp);
+    });
+    return ret;
   }
 
   singleClick(item): void {

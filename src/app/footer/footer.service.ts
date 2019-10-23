@@ -11,7 +11,13 @@ export class FooterService {
 
   constructor(private http: HttpClient) { }
 
+  // getSongDetail(id) {
+  //   return this.http.get(`/wangyiyun-online/assets/api/song-${id}.json`);
+  // }
+
   getSongDetail(id) {
-    return this.http.get(`/wangyiyun-online/assets/api/song-${id}.json`);
+    return this.http.get(`https://api.imjad.cn/cloudmusic/?type=song&id=${id}`);
   }
+
+  
 }
