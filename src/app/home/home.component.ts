@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeService } from './home.service';
 
 @Component({
   selector: 'app-home',
@@ -10,24 +11,27 @@ export class HomeComponent implements OnInit {
   playing: boolean;
   playList: boolean;
 
-  constructor() { }
+  constructor(private homeSer: HomeService) { }
 
   ngOnInit() {
+    this.homeSer.getPlayList('0001').subscribe(data => {
+      this.homeSer.playList.next(data['songs']);
+    });
   }
 
-  openPlaying(): void{
+  openPlaying(): void {
     this.playing = true;
   }
 
-  closePlaying(): void{
+  closePlaying(): void {
     this.playing = false;
   }
 
-  openPlayList(): void{
+  openPlayList(): void {
     this.playList = !this.playList;
   }
 
-  closePlayList(): void{
+  closePlayList(): void {
     this.playList = false;
   }
 

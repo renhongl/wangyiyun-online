@@ -1,0 +1,62 @@
+<div class="song-list" *ngIf="songList">
+  <div class="header">
+    <div class="img" [style.background]="'url('+ songList.img + ')'">
+
+    </div>
+    <div class="category">
+      <span class="cate-label">歌单</span>{{songList.category}}
+    </div>
+    <div class="songer">
+      {{songList.author}}
+    </div>
+    <div class="create-date">
+      {{songList.createDate}} 创建
+    </div>
+    <div class="actions">
+
+    </div>
+    <div class="labels">
+      <span>标签：</span>
+      <span *ngFor="let item of songList.label">{{item}}/</span>
+    </div>
+    <div class="desc">
+      简介：{{songList.desc}}
+    </div>
+  </div>
+
+  <div class="content">
+    <mat-tab-group>
+      <mat-tab label="歌曲列表">
+        <div class="song-item header">
+          <span class="number"></span>
+          <span class="action">
+            操作
+          </span>
+          <span class="title">音乐标题</span>
+          <span class="author">歌手</span>
+          <span class="zhuanji">专辑</span>
+          <span class="time">时长</span>
+        </div>
+        <div class="song-item" *ngFor="let song of songList.songs; let i = index" (dblclick)="doubleClick(song.id)">
+          <span class="number" *ngIf="song.id !== currentSong.id">{{i}}</span>
+          <span class="number current" *ngIf="song.id === currentSong.id"><i class="fas fa-headphones"></i></span>
+          <span class="love">
+            <i class="material-icons">
+              favorite_border
+            </i></span>
+          <span class="download">
+            <i class="fas fa-download"></i>
+          </span>
+          <span class="title">{{song.name}}<span class="vip" *ngIf="song.vip">SQ</span></span>
+          <span class="author">{{song.author}}</span>
+          <span class="zhuanji">{{song.zhuanji}}</span>
+          <span class="time">{{song.time}}</span>
+        </div>
+        <p></p>
+        <p></p>
+      </mat-tab>
+      <mat-tab label="评论(3)"> Content 2 </mat-tab>
+      <mat-tab label="收藏者"> Content 3 </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>

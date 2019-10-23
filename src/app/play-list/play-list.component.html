@@ -7,10 +7,10 @@
   <div class="content">
     <div class="list" *ngIf="showList">
       <div class="total">
-        总21首
+        总{{playList.length}}首
       </div>
       <div class="item-con">
-        <div class="item" *ngFor="let item of playList;" (click)="playThisMusic(item)">
+        <div class="item" *ngFor="let item of playList;" (click)="singleClick(item)" (dblclick)="doubleClick(item)">
           <span class="playing"><i *ngIf="item.id === currentSong.id" class="fas fa-headphones"></i></span>
           <span class="name">{{item.name}}</span>
           <span class="status" *ngIf="item.vip">SQ</span>
@@ -18,7 +18,7 @@
           <span class="from" [title]="item.source"><i class="material-icons">
               link
             </i></span>
-          <span class="author">花粥</span>
+          <span class="author">{{item.author}}</span>
         </div>
       </div>
     </div>

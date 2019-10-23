@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { FooterService } from './footer.service';
 import { interval } from 'rxjs';
+import { HomeService } from '../home/home.service';
 
 @Component({
   selector: 'app-footer',
@@ -16,35 +17,101 @@ export class FooterComponent implements OnInit, OnDestroy {
   checkTimer: any;
   currentTime: string;
   duration: string;
-  loop: boolean;
+  loopStatus = 0;
   sliderMax: number;
   sliderMin: number;
   sliderValue: number;
   volume: number;
+  playingIndex = 0;
+  playList: any;
 
   @Output()
   open = new EventEmitter();
 
-  constructor(private footerSer: FooterService) { }
+  constructor(private footerSer: FooterService, private homeSer: HomeService) { }
 
   ngOnInit() {
-    this.footerSer.songDetail.subscribe(data => {
-      this.songDetail = data;
-      if (this.playing) {
-        this.player.oncanplay  = () => {
+    this.listenPlayList();
+    this.listSongDetail();
+    this.player = this.playerRef.nativeElement;
+    this.volume = 5;
+    this.checkStatus();
+    this.listenEnded();
+  }
+
+  listenEnded() {
+    this.player.onended = () => {
+      if (this.loopStatus === 0) {// list loop
+        this.playingIndex++;
+        if (this.playingIndex >= this.playList.length) {
+          this.playingIndex = 0;
+        }
+        this.playThisMusic(this.playList[this.playingIndex]);
+      } else if (this.loopStatus === 1) { // single loop
+        this.player.play();
+      } else if (this.loopStatus === 2) { // random loop
+        let n = Number.parseInt((Math.random() * this.playList.length).toString());
+        if (n === this.playingIndex) {
           this.player.play();
+        } else {
+          this.playingIndex = n;
+          this.playThisMusic(this.playList[this.playingIndex]);
         }
       }
-    });
-    this.footerSer.getSongDetail('0001').subscribe(data => {
+    };
+  }
+
+  updateLoopStatus() {
+    if (this.loopStatus === 0) {
+      this.loopStatus = 1;
+    } else if (this.loopStatus === 1) {
+      this.loopStatus = 2;
+    } else {
+      this.loopStatus = 0;
+    }
+  }
+
+  playThisMusic(item) {
+    this.footerSer.getSongDetail(item.id).subscribe(data => {
       this.footerSer.songDetail.next(data);
     });
+  }
 
-    this.player = this.playerRef.nativeElement;
+  listSongDetail() {
+    this.footerSer.songDetail.subscribe(data => {
+      this.songDetail = data;
+      if (this.player && this.playing !== undefined) {
+        this.player.oncanplay = () => {
+          this.player.play();
+          this.playing = true;
+        };
+      }
+    });
+  }
 
-    this.volume = 5;
+  listenPlayList() {
+    this.homeSer.playList.subscribe(data => {
+      if (data.length === 0) {
+        return;
+      }
+      this.playList = data;
+      let id = this.getCurrentId(data);
+      this.footerSer.getSongDetail(id).subscribe(detail => {
+        this.footerSer.songDetail.next(detail);
+        this.playing = false;
+      });
+    });
+  }
 
-    this.checkStatus();
+  getCurrentId(data) {
+    let ret = data[0].id;
+    data.forEach((item, index) => {
+      if (item.current === true) {
+        ret = item.id;
+        this.playingIndex = index;
+      }
+    });
+    return ret;
   }
 
   openPlayList() {
@@ -59,6 +126,9 @@ export class FooterComponent implements OnInit, OnDestroy {
     this.checkTimer = interval(1000);
     this.checkTimer.subscribe(val => {
       this.updateDurationSlider();
+      if (this.player.ended && this.playing) {
+        this.playing = false;
+      }
     });
   }
 

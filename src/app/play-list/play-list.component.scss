@@ -30,12 +30,18 @@
                 background: #fbfbfb;
             }
 
+            .item:hover{
+                background: #e2e2e2 !important;
+            }
+
             .item {
                 height: 30px;
                 line-height: 30px;
                 padding: 0 10px 0 10px;
                 color: #000;
                 font-size: 13px;
+                cursor: pointer;
+                user-select: none;
 
                 .playing {
                     display: inline-block;

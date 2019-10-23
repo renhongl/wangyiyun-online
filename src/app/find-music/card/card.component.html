@@ -1,4 +1,4 @@
-<div class="card" [style.background]="'url(' + song.preview + ')'">
+<div class="card" [style.background]="'url(' + song.preview + ')'" (click)="showList(song.id)">
     <div class="love">
         <i class="fas fa-headphones"></i>
         <span class="love-num">{{song.love}}</span>

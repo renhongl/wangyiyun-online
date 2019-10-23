@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { PlayListService } from './play-list.service';
+import { HomeService } from '../home/home.service';
 import { FooterService } from '../footer/footer.service';
 
 @Component({
@@ -15,11 +15,13 @@ export class PlayListComponent implements OnInit {
   showList = true;
   playList: any;
   currentSong: any;
+  preventSimpleClick: boolean;
+  timer: any;
 
-  constructor(private playListSer: PlayListService, private footSer: FooterService) { }
+  constructor(private homeSer: HomeService, private footSer: FooterService) { }
 
   ngOnInit() {
-    this.playListSer.getPlayList().subscribe(data => {
+    this.homeSer.playList.subscribe(data => {
       this.playList = data;
     });
 
@@ -38,6 +40,23 @@ export class PlayListComponent implements OnInit {
 
   showHistory() {
     this.showList = false;
+  }
+
+  singleClick(item): void {
+    this.timer = 0;
+    this.preventSimpleClick = false;
+    let delay = 500;
+
+    this.timer = setTimeout(() => {
+      if (!this.preventSimpleClick) {
+      }
+    }, delay);
+  }
+
+  doubleClick(item): void {
+    this.preventSimpleClick = true;
+    clearTimeout(this.timer);
+    this.playThisMusic(item);
   }
 
   playThisMusic(item) {

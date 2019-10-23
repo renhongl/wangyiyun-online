@@ -113,6 +113,10 @@
 
         i{
             cursor: pointer;
+
+            &:hover{
+                color: gray;
+            }
         }
     }
 }

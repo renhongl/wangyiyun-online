@@ -8,7 +8,11 @@ export class FindMusicService {
 
   constructor(private http: HttpClient) { }
 
-  getSongs(type: string) {
-    return this.http.get(`/wangyiyun-online/assets/api/songs-${type}.json`);
+  getSongType(id: string) {
+    return this.http.get(`/wangyiyun-online/assets/api/song-type-${id}.json`);
+  }
+
+  getSongTypeRecommend(id: string) {
+    return this.http.get(`/wangyiyun-online/assets/api/song-type-${id}.json`);
   }
 }

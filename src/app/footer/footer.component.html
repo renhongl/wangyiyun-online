@@ -36,7 +36,7 @@
     <i *ngIf="volume === 0" class="material-icons">
       volume_off
     </i>
-    <i  *ngIf="volume !== 0" class="material-icons">
+    <i *ngIf="volume !== 0" class="material-icons">
       volume_up
     </i>
     <mat-slider class="volume-slider" color="primary" min="0" max="10" [(ngModel)]="volume" (change)="setVolume($event)"
@@ -44,8 +44,16 @@
   </div>
 
   <div class="action">
-    <i class="material-icons">
+    <i class="material-icons" *ngIf="loopStatus === 1" (click)="updateLoopStatus()">
       repeat_one
+    </i>
+
+    <i class="material-icons" *ngIf="loopStatus === 0" (click)="updateLoopStatus()">
+      playlist_play
+    </i>
+
+    <i class="material-icons" *ngIf="loopStatus === 2" (click)="updateLoopStatus()">
+      shuffle
     </i>
 
     <i class="material-icons">
@@ -53,7 +61,8 @@
     </i>
 
     <i class="material-icons" (click)="openPlayList()">
-      playlist_play
+      list
     </i>
+
   </div>
 </div>

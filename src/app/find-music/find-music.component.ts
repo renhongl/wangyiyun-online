@@ -14,14 +14,19 @@ export class FindMusicComponent implements OnInit {
   constructor(private findMusicServ: FindMusicService) { }
 
   ngOnInit() {
-    this.getSongs();
+    this.getSongType();
+    this.getRecommendType();
   }
 
-  getSongs() {
-    this.findMusicServ.getSongs('all').subscribe(data => {
+  getSongType() {
+    this.findMusicServ.getSongType('0001').subscribe(data => {
       this.songs = data;
-      this.recommendSongs = Object.assign([], data);
-      this.recommendSongs.length = 8;
+    });
+  }
+
+  getRecommendType() {
+    this.findMusicServ.getSongTypeRecommend('0002').subscribe(data => {
+      this.recommendSongs = data;
     });
   }
 
