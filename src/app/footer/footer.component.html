@@ -1,7 +1,7 @@
 <div class="footer">
   <audio [src]="songDetail.url" #playerRef></audio>
   <div class="control">
-    <div class="before">
+    <div class="before" (click)="before()">
       <i class="material-icons">
         skip_previous
       </i>
@@ -16,7 +16,7 @@
       </i>
     </div>
 
-    <div class="after">
+    <div class="after" (click)="after()">
       <i class="material-icons">
         skip_next
       </i>

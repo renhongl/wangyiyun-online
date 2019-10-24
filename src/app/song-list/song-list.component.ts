@@ -21,15 +21,20 @@ export class SongListComponent implements OnInit {
   preventSimpleClick: boolean;
   timer: any;
   currentSong: any;
+  playList: any;
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
-    this.songListSer.getSongList('2958537532').subscribe(data => {
+    this.songListSer.getSongList(id).subscribe(data => {
       this.songList = this.dataAdapter(data);
     });
 
     this.footSer.songDetail.subscribe(data => {
       this.currentSong = data;
+    });
+
+    this.homeSer.playList.subscribe(data => {
+      this.playList = data;
     });
   }
 
@@ -52,13 +57,27 @@ export class SongListComponent implements OnInit {
         'name': item.name,
         'author': item.ar[0].name,
         'zhuanji': item.al.name,
-        'time': item.m.size,
+        'time': this.timeFormat(item.dt),
         'vip': true,
+        picUrl: item.al.picUrl,
         playCount: item.playCount
       };
       ret.songs.push(temp);
     });
     return ret;
+  }
+
+  timeFormat(time) {
+    let mins = Number.parseInt((time / 1000 / 60).toString());
+    let secs = Number.parseInt((time / 1000 % 60).toString());
+    return this.addZero(mins) + ':' + this.addZero(secs);
+  }
+
+  addZero(time) {
+    if (time < 10) {
+      return '0' + time;
+    }
+    return time;
   }
 
   singleClick(item): void {
@@ -76,6 +95,11 @@ export class SongListComponent implements OnInit {
     this.preventSimpleClick = true;
     clearTimeout(this.timer);
     this.playThisList(id);
+  }
+
+  addThisList() {
+    let newList = this.playList.concat(this.songList.songs);
+    this.homeSer.playList.next(newList);
   }
 
   playThisList(id) {

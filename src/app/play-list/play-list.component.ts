@@ -62,22 +62,36 @@ export class PlayListComponent implements OnInit {
   playThisMusic(item) {
     this.footSer.getSongDetail(item.id).subscribe(data => {
       this.footSer.songDetail.next(this.dataAdapter(data['data'][0]));
-      this.currentSong = data;
+      this.currentSong = data['data'][0];
+      // this.setCurrent(data['id']);
     });
   }
 
+  setCurrent(id) {
+    let newList = Object.assign([], this.playList);
+    newList.forEach(item => {
+      if (item.id === id) {
+        item.current = true;
+      } else {
+        item.current = false;
+      }
+    });
+    this.homeSer.playList.next(newList);
+  }
+
   dataAdapter(data) {
+    let current = this.playList.filter(item => item.id === data.id)[0];
     let ret = {
       'id': data.id,
-      'name': '偏爱',
-      'author': '张芸京',
-      'preview': '/wangyiyun-online/assets/images/s1.jpg',
+      'name': current.name,
+      'author': current.author,
+      'preview': current.picUrl,
       'source': '每日歌曲推荐',
-      'zhuanji': '一碗',
+      'zhuanji': current.zhuanji,
       'lyric': '',
       'url': data.url,
-      'time': '02:25',
-      'vip': true
+      'time': current.time,
+      'vip': current.vip
     };
     return ret;
   }

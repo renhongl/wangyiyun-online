@@ -8,41 +8,6 @@
     "label": ["华语", "流行", "思念"],
     "desc": "忘却，真是天下最简单又最难的事了。",
     "songs": [
-        {
-            "id": "0001",
-            "name": "偏爱",
-            "author": "张芸京",
-            "preview": "/wangyiyun-online/assets/images/s1.jpg",
-            "source": "每日歌曲推荐",
-            "zhuanji": "一碗",
-            "lyric": "",
-            "url": "/wangyiyun-online/assets/music/0001.mp3",
-            "time": "02:25",
-            "vip": true 
-        },
-        {
-            "id": "0002",
-            "name": "红豆",
-            "author": "王菲",
-            "preview": "/wangyiyun-online/assets/images/s2.jpg",
-            "source": "每日歌曲推荐",
-            "zhuanji": "一碗",
-            "lyric": "",
-            "url": "/wangyiyun-online/assets/music/王菲 - 紅豆.mp3",
-            "time": "02:25",
-            "vip": true 
-        },
-        {
-            "id": "0003",
-            "name": "Anna F - Too Far",
-            "author": "Anna F",
-            "preview": "/wangyiyun-online/assets/images/s2.jpg",
-            "source": "每日歌曲推荐",
-            "zhuanji": "Fortunate Fall",
-            "lyric": "",
-            "url": "/wangyiyun-online/assets/music/Anna F - Too Far.mp3",
-            "time": "02:25",
-            "vip": true 
-        }
+        {"id":504624714,"name":"青柠","author":"徐秉龙","preview":"https://p2.music.126.net/CFWxtFlJK3qs-Fx-TUfMnQ==/109951163020971473.jpg","source":"每日歌曲推荐","zhuanji":"青柠","lyric":"","url":"https://m8.music.126.net/20191024155107/34d1f891099c534f631c919f50a75ca2/ymusic/2e63/9e00/b588/89f944885717fc8951bffc7b4bb5261c.mp3","time":"03:19","vip":true}
     ]
 }

@@ -13,7 +13,18 @@
       {{songList.createDate}} 创建
     </div>
     <div class="actions">
-
+      <div class="play-all">
+        <div class="left" (click)="playThisList(-1)">
+          <i class="material-icons">
+            play_circle_outline
+          </i>播放全部</div>
+        <div class="add-all" title="添加全部到播放列表" (click)="addThisList()"><i class="material-icons">
+            add
+          </i></div>
+      </div>
+      <div class="save">收藏</div>
+      <div class="share">分享</div>
+      <span class="download-all">下载全部</span>
     </div>
     <div class="labels">
       <span>标签：</span>

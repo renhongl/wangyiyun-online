@@ -15,7 +15,7 @@
             height: 30px;
             width: 30px;
             border-radius: 50%;
-            background: #5bad5b;
+            background: #5b8be6;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -24,6 +24,10 @@
     
             i{
                 font-size: 20px;
+            }
+
+            &:hover{
+                background: #4f7bce !important;
             }
         }
     
@@ -31,7 +35,7 @@
             height: 35px;
             width: 35px;
             border-radius: 50%;
-            background: #5bad5b;
+            background: #5b8be6;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -41,13 +45,17 @@
             i{
                 font-size: 20px;
             }
+
+            &:hover{
+                background: #4f7bce !important;
+            }
         }
     
         .after{
             height: 30px;
             width: 30px;
             border-radius: 50%;
-            background: #5bad5b;
+            background: #5b8be6;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -56,6 +64,10 @@
     
             i{
                 font-size: 20px;
+            }
+
+            &:hover{
+                background: #4f7bce !important;
             }
         }
     }

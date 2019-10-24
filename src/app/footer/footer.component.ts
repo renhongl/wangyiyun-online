@@ -61,6 +61,22 @@ export class FooterComponent implements OnInit, OnDestroy {
     };
   }
 
+  before() {
+    this.playingIndex--;
+    if (this.playingIndex < 0) {
+      this.playingIndex = this.playList.length - 1;
+    }
+    this.playThisMusic(this.playList[this.playingIndex]);
+  }
+
+  after() {
+    this.playingIndex++;
+    if (this.playingIndex >= this.playList.length) {
+      this.playingIndex = 0;
+    }
+    this.playThisMusic(this.playList[this.playingIndex]);
+  }
+
   updateLoopStatus() {
     if (this.loopStatus === 0) {
       this.loopStatus = 1;
@@ -78,23 +94,27 @@ export class FooterComponent implements OnInit, OnDestroy {
   }
 
   dataAdapter(data) {
+    let current = this.playList.filter(item => item.id === data.id)[0];
     let ret = {
       'id': data.id,
-      'name': '偏爱',
-      'author': '张芸京',
-      'preview': '/wangyiyun-online/assets/images/s1.jpg',
+      'name': current.name,
+      'author': current.author,
+      'preview': current.picUrl || current.preview,
       'source': '每日歌曲推荐',
-      'zhuanji': '一碗',
+      'zhuanji': current.zhuanji,
       'lyric': '',
       'url': data.url,
-      'time': '02:25',
-      'vip': true
+      'time': current.time,
+      'vip': current.vip
     };
     return ret;
   }
 
   listSongDetail() {
     this.footerSer.songDetail.subscribe(data => {
+      if (this.songDetail && this.songDetail.id === data['id']) {
+        return;
+      }
       this.songDetail = data;
       if (this.player && this.playing !== undefined) {
         this.player.oncanplay = () => {
