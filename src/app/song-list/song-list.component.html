@@ -56,7 +56,9 @@
               favorite_border
             </i></span>
           <span class="download">
-            <i class="fas fa-download"></i>
+            <i class="material-icons" title="播放" (click)="playThisSong(song)">
+              play_arrow
+            </i>
           </span>
           <span class="title">{{song.name}}<span class="vip" *ngIf="song.vip">SQ</span></span>
           <span class="author">{{song.author}}</span>

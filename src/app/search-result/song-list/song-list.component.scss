@@ -1,0 +1,125 @@
+
+
+.song-list {
+    width: 100%;
+    height: 100%;
+
+    
+
+    .content{
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+
+        .mat-tab-body-content{
+            overflow: hidden !important;
+        }
+
+        .song-item.header{
+            border-bottom: 1px solid #e2e0e0;
+            height: 30px;
+            display: flex;
+        }
+
+        .song-item:hover{
+            background: #e8e8e8 !important;
+        }
+
+        .song-item {
+            height: 30px;
+            line-height: 30px;
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+
+            span.number {
+                display: inline-block;
+                width: 5%;
+                text-align: right;
+            }
+
+            .number.current{
+                color: #5b8be6 !important;
+            }
+
+            span.love {
+                display: inline-block;
+                width: 5%;
+                text-align: right;
+
+                i{
+                    font-size: 15px;
+                    transform: translateY(3px);
+                }
+            }
+
+            span.download {
+                display: inline-block;
+                width: 5%;
+                text-align: center;
+
+                i{
+                    font-size: 16px;
+                    transform: translateY(3px);
+                    &:hover{
+                        color: gray;
+                    }
+                }
+            }
+
+            span.title {
+                width: 40%;
+                display: inline-block;
+                font-size: 13px;
+                padding-left: 10px;
+            }
+
+            span.vip {
+                color: red;
+                border: 1px solid red;
+                padding: 1px 2px 1px 2px;
+                font-size: 10px;
+                margin-left: 10px;
+                border-radius: 3px;
+            }
+
+            span.author {
+                display: inline-block;
+                width: 20%;
+                font-size: 12px;
+            }
+
+            span.zhuanji {
+                display: inline-block;
+                width: 20%;
+                font-size: 12px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                height: 100%;
+                padding-right: 10px;
+                overflow-y: hidden;
+                white-space: nowrap;
+            }
+
+            span.time {
+                display: inline-block;
+                font-size: 12px;
+                color: gray;
+            }
+
+            span.action {
+                display: inline-block;
+                width: 10%;
+                padding-left: 40px;
+            }
+        }
+
+        .song-item:nth-child(odd){
+            background: #fff;
+        }
+
+        .song-item:nth-child(even){
+            background: #fbfbfb;
+        }
+    }
+}

@@ -98,12 +98,24 @@ export class SongListComponent implements OnInit {
   }
 
   addThisList() {
-    let newList = this.playList.concat(this.songList.songs);
-    this.homeSer.playList.next(newList);
+    const newList = this.playList.concat(this.songList.songs);
+    const temp = [];
+    newList.forEach(item => {
+      let has = false;
+      temp.forEach(ite => {
+        if (item.id === ite.id) {
+          has = true;
+        }
+      });
+      if (!has) {
+        temp.push(item);
+      }
+    });
+    this.homeSer.playList.next(temp);
   }
 
   playThisList(id) {
-    let newList = Object.assign([], this.songList.songs);
+    const newList = Object.assign([], this.songList.songs);
     newList.forEach(item => {
       if (item.id === id) {
         item.current = true;
@@ -111,6 +123,16 @@ export class SongListComponent implements OnInit {
         item.current = false;
       }
     });
+    this.homeSer.playList.next(newList);
+  }
+
+  playThisSong(song) {
+    song.current = true;
+    const newList = Object.assign([], this.playList);
+    newList.forEach(item => {
+        item.current = false;
+    });
+    newList.push(song);
     this.homeSer.playList.next(newList);
   }
 

@@ -1,0 +1,31 @@
+<div class="song-list" *ngIf="songList">
+  <div class="content">
+    <div class="song-item header">
+      <span class="number"></span>
+      <span class="action">
+        操作
+      </span>
+      <span class="title">音乐标题</span>
+      <span class="author">歌手</span>
+      <span class="zhuanji">专辑</span>
+      <span class="time">时长</span>
+    </div>
+    <div class="song-item" *ngFor="let song of songList; let i = index">
+      <span class="number">{{i + 1}}</span>
+      <span class="love">
+        <i class="material-icons">
+          favorite_border
+        </i></span>
+      <span class="download">
+        <i class="material-icons" title="播放" (click)="playThisSong(song)">
+          play_arrow
+        </i>
+      </span>
+      <span class="title">{{song.name}}<span class="vip" *ngIf="song.vip">SQ</span></span>
+      <span class="author">{{song.author}}</span>
+      <span class="zhuanji">{{song.zhuanji}}</span>
+      <span class="time">{{song.time}}</span>
+    </div>
+    <p></p>
+  </div>
+</div>

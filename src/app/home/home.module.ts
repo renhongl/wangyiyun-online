@@ -12,11 +12,13 @@ import { PrivateFmModule } from '../private-fm/private-fm.module';
 import { PrivateFmComponent } from '../private-fm/private-fm.component';
 
 import { SongListComponent } from '../song-list/song-list.component';
+import { SearchResultComponent } from '../search-result/search-result.component';
 
 import { FooterModule } from '../footer/footer.module';
 import { PlayingModule } from '../playing/playing.module';
 import { PlayListModule } from '../play-list/play-list.module';
 import { SongListModule } from '../song-list/song-list.module';
+import { SearchResultModule } from '../search-result/search-result.module';
 
 const routes: Routes = [
   {
@@ -38,6 +40,10 @@ const routes: Routes = [
       {
         path: 'songList/:id',
         component: SongListComponent
+      },
+      {
+        path: 'searchResult/:keyword',
+        component: SearchResultComponent
       }
     ]
   }
@@ -54,7 +60,8 @@ const routes: Routes = [
     FooterModule,
     PlayingModule,
     PlayListModule,
-    SongListModule
+    SongListModule,
+    SearchResultModule
   ]
 })
 export class HomeModule { }

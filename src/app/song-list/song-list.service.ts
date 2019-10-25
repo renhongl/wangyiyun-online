@@ -13,6 +13,6 @@ export class SongListService {
   // }
 
   getSongList(id) {
-    return this.http.get(`https://api.imjad.cn/cloudmusic/?type=playlist&id=${id}`);
+    return this.http.get(`https://api.imjad.cn/cloudmusic/?type=playlist&id=${id}&limit=100`);
   }
 }

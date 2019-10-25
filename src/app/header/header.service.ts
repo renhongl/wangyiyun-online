@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HeaderService {
+
+  searchResult = new BehaviorSubject([]);
 
   constructor(private http: HttpClient) { }
 
@@ -12,7 +15,7 @@ export class HeaderService {
     return this.http.get(`/wangyiyun-online/assets/api/result-${type}.json`);
   }
 
-  search() {
-    return this.http.get('https://api.imjad.cn/cloudmusic/?type=search&search_type=1&s=有点甜');
+  search(keyWord, type, offset) {
+    return this.http.get(`http://music.163.com/api/search/get?s=${keyWord}&type=${type}&total=true&limit=30&offset=${offset}`);
   }
 }

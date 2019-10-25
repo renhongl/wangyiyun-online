@@ -120,6 +120,7 @@ export class FooterComponent implements OnInit, OnDestroy {
         this.player.oncanplay = () => {
           this.player.play();
           this.playing = true;
+          document.title['innerText'] = data['name'];
         };
       }
     });
@@ -134,7 +135,10 @@ export class FooterComponent implements OnInit, OnDestroy {
       let id = this.getCurrentId(data);
       this.footerSer.getSongDetail(id).subscribe(detail => {
         this.footerSer.songDetail.next(this.dataAdapter(detail['data'][0]));
-        this.playing = false;
+        if (this.songDetail && this.songDetail.id === detail['data'][0]['id']) {
+        } else {
+          this.playing = false;
+        }
       });
     });
   }

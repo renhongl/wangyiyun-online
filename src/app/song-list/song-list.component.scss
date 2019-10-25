@@ -216,6 +216,9 @@
                 i{
                     font-size: 15px;
                     transform: translateY(3px);
+                    &:hover{
+                        color: gray;
+                    }
                 }
             }
 
@@ -227,6 +230,9 @@
                 i{
                     font-size: 15px;
                     transform: translateY(3px);
+                    &:hover{
+                        color: gray;
+                    }
                 }
             }
 
