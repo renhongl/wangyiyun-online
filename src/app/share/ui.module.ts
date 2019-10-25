@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule, MatSliderModule, MatTabsModule,
   MatPaginatorModule,
   MatDialogModule } from '@angular/material';
-import { NzCarouselModule, NzPopoverModule, NzButtonModule   } from 'ng-zorro-antd';
+import { NzCarouselModule, NzPopoverModule, NzButtonModule, NzMessageModule } from 'ng-zorro-antd';
 
 @NgModule({
   declarations: [],
@@ -19,7 +19,8 @@ import { NzCarouselModule, NzPopoverModule, NzButtonModule   } from 'ng-zorro-an
     MatPaginatorModule,
     MatDialogModule,
     NzPopoverModule,
-    NzButtonModule 
+    NzButtonModule,
+    NzMessageModule
   ],
   exports: [
     MatButtonModule,
@@ -32,7 +33,8 @@ import { NzCarouselModule, NzPopoverModule, NzButtonModule   } from 'ng-zorro-an
     MatPaginatorModule,
     MatDialogModule,
     NzPopoverModule,
-    NzButtonModule
+    NzButtonModule,
+    NzMessageModule
   ]
 })
 export class UiModule { }

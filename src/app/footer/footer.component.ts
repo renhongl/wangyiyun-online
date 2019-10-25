@@ -120,8 +120,16 @@ export class FooterComponent implements OnInit, OnDestroy {
         this.player.oncanplay = () => {
           this.player.play();
           this.playing = true;
-          document.title['innerText'] = data['name'];
+          this.setIndex();
         };
+      }
+    });
+  }
+
+  setIndex() {
+    this.playList.forEach((item, i) => {
+      if (item.id === this.songDetail.id) {
+        this.playingIndex = i;
       }
     });
   }
@@ -132,7 +140,7 @@ export class FooterComponent implements OnInit, OnDestroy {
         return;
       }
       this.playList = data;
-      let id = this.getCurrentId(data);
+      const id = this.getCurrentId(data);
       this.footerSer.getSongDetail(id).subscribe(detail => {
         this.footerSer.songDetail.next(this.dataAdapter(detail['data'][0]));
         if (this.songDetail && this.songDetail.id === detail['data'][0]['id']) {
@@ -145,6 +153,7 @@ export class FooterComponent implements OnInit, OnDestroy {
 
   getCurrentId(data) {
     let ret = data[0].id;
+    this.playingIndex = 0;
     data.forEach((item, index) => {
       if (item.current === true) {
         ret = item.id;

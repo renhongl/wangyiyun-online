@@ -20,6 +20,9 @@
         <i class="material-icons" title="播放" (click)="playThisSong(song)">
           play_arrow
         </i>
+        <i class="material-icons" title="添加全部到播放列表" (click)="addThisSong(song)">
+          add
+        </i>
       </span>
       <span class="title">{{song.name}}<span class="vip" *ngIf="song.vip">SQ</span></span>
       <span class="author">{{song.author}}</span>

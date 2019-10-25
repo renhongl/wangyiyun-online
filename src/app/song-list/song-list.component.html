@@ -49,7 +49,7 @@
           <span class="time">时长</span>
         </div>
         <div class="song-item" *ngFor="let song of songList.songs; let i = index" (dblclick)="doubleClick(song.id)">
-          <span class="number" *ngIf="song.id !== currentSong.id">{{i}}</span>
+          <span class="number" *ngIf="song.id !== currentSong.id">{{i + 1}}</span>
           <span class="number current" *ngIf="song.id === currentSong.id"><i class="fas fa-headphones"></i></span>
           <span class="love">
             <i class="material-icons">
@@ -58,6 +58,9 @@
           <span class="download">
             <i class="material-icons" title="播放" (click)="playThisSong(song)">
               play_arrow
+            </i>
+            <i class="material-icons" title="添加全部到播放列表" (click)="addThisSong(song)">
+              add
             </i>
           </span>
           <span class="title">{{song.name}}<span class="vip" *ngIf="song.vip">SQ</span></span>

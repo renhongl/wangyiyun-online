@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { HomeService } from '../home/home.service';
 import { FooterService } from '../footer/footer.service';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
   selector: 'app-play-list',
@@ -18,7 +19,7 @@ export class PlayListComponent implements OnInit {
   preventSimpleClick: boolean;
   timer: any;
 
-  constructor(private homeSer: HomeService, private footSer: FooterService) { }
+  constructor(private homeSer: HomeService, private footSer: FooterService, private message: NzMessageService) { }
 
   ngOnInit() {
     this.homeSer.playList.subscribe(data => {
@@ -62,9 +63,19 @@ export class PlayListComponent implements OnInit {
   playThisMusic(item) {
     this.footSer.getSongDetail(item.id).subscribe(data => {
       this.footSer.songDetail.next(this.dataAdapter(data['data'][0]));
-      this.currentSong = data['data'][0];
-      // this.setCurrent(data['id']);
+      this.currentSong = this.getCurrentSong(data['data'][0]);
+      this.message.success(`正在播放：${this.currentSong.name}`);
     });
+  }
+
+  getCurrentSong(data) {
+    let ret;
+    this.playList.forEach(item => {
+      if (item.id === data.id) {
+        ret = item;
+      }
+    });
+    return ret;
   }
 
   setCurrent(id) {

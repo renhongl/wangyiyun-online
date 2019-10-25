@@ -49,6 +49,15 @@
                     color: #5b8be6;
                 }
 
+                .play {
+                    display: inline-block;
+                    width: 5%;
+
+                    &:hover{
+                        color: gray;
+                    }
+                }
+
                 span.status {
                     margin-left: 10px;
                     border: 1px solid red;
@@ -70,6 +79,11 @@
                     padding-top: 3px;
                     color: #cccccc;
                     transform: rotate(-45deg);
+                    
+                    i{
+                        font-size: 18px;
+                        margin: 4px;
+                    }
                 }
 
                 .author {

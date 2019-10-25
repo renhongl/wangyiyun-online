@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { SongListService } from './song-list.service';
 import { HomeService } from '../home/home.service';
 import { FooterService } from '../footer/footer.service';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
   selector: 'app-song-list',
@@ -15,7 +16,8 @@ export class SongListComponent implements OnInit {
     private route: ActivatedRoute,
     private songListSer: SongListService,
     private homeSer: HomeService,
-    private footSer: FooterService) { }
+    private footSer: FooterService,
+    private message: NzMessageService) { }
 
   songList: any;
   preventSimpleClick: boolean;
@@ -99,19 +101,27 @@ export class SongListComponent implements OnInit {
 
   addThisList() {
     const newList = this.playList.concat(this.songList.songs);
+    this.homeSer.playList.next(this.unique(newList));
+    this.message.success(`歌曲已经全部添加到播放列表`);
+  }
+
+  unique(list) {
     const temp = [];
-    newList.forEach(item => {
+    list.forEach(item => {
       let has = false;
-      temp.forEach(ite => {
+      temp.forEach((ite, index) => {
         if (item.id === ite.id) {
           has = true;
+          if (item.current) {
+            temp[index] = item;
+          }
         }
       });
       if (!has) {
         temp.push(item);
       }
     });
-    this.homeSer.playList.next(temp);
+    return temp;
   }
 
   playThisList(id) {
@@ -124,16 +134,29 @@ export class SongListComponent implements OnInit {
       }
     });
     this.homeSer.playList.next(newList);
+    this.message.success(`正在播放该歌单`);
+  }
+
+  addThisSong(song) {
+    const newList = Object.assign([], this.playList);
+    newList.push(song);
+    this.homeSer.playList.next(this.unique(newList));
+    this.message.success(`添加成功：${song.name}`);
   }
 
   playThisSong(song) {
-    song.current = true;
+    let newSong = Object.assign({}, song);
+    newSong.current = true;
     const newList = Object.assign([], this.playList);
     newList.forEach(item => {
-        item.current = false;
+      item.current = false;
     });
-    newList.push(song);
-    this.homeSer.playList.next(newList);
+    newList.push(newSong);
+    newList.forEach(item => {
+      console.log(item.name + '-' + item.current);
+    })
+    this.homeSer.playList.next(this.unique(newList));
+    this.message.success(`正在播放：${song.name}`);
   }
 
 }

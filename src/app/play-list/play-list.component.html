@@ -11,13 +11,20 @@
       </div>
       <div class="item-con">
         <div class="item" *ngFor="let item of playList;" (click)="singleClick(item)" (dblclick)="doubleClick(item)">
-          <span class="playing"><i *ngIf="item.id === currentSong.id" class="fas fa-headphones"></i></span>
+          <span class="playing">
+            <i *ngIf="item.id === currentSong.id" class="fas fa-headphones"></i>
+          </span>
+          <span class="play">
+            <i class="far fa-play-circle"  title="播放" (click)="playThisMusic(item)"></i>
+          </span>
           <span class="name">{{item.name}}</span>
           <span class="status" *ngIf="item.vip">SQ</span>
           <span class="time">{{item.time}}</span>
-          <span class="from" [title]="item.source"><i class="material-icons">
+          <span class="from" [title]="item.source">
+            <!-- <i class="material-icons">
               link
-            </i></span>
+            </i> -->
+          </span>
           <span class="author">{{item.author}}</span>
         </div>
       </div>
