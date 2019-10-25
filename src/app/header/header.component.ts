@@ -21,6 +21,10 @@ export class HeaderComponent implements OnInit {
     this.headerSer.getSearchResult('all').subscribe(data => {
       this.results = data;
     });
+
+    this.headerSer.search().subscribe(data => {
+      console.log(data);
+    });
   }
 
   change(e): void {

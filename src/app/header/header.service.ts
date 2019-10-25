@@ -11,4 +11,8 @@ export class HeaderService {
   getSearchResult(type: string) {
     return this.http.get(`/wangyiyun-online/assets/api/result-${type}.json`);
   }
+
+  search() {
+    return this.http.get('https://api.imjad.cn/cloudmusic/?type=search&search_type=1&s=有点甜');
+  }
 }
