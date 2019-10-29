@@ -34,11 +34,11 @@ export class SearchResultComponent implements OnInit {
       return {
         id: item.id,
         name: item.name,
-        author: item.artists[0].name,
-        zhuanji: item.album.name,
-        time: this.timeFormat(item.duration),
+        author: item.ar[0].name,
+        zhuanji: item.al.name,
+        time: this.timeFormat(item.dt),
         vip: true,
-        preview: item.artists[0].img1v1Url
+        preview: item.al.picUrl
       };
     });
     return data;
