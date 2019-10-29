@@ -203,7 +203,7 @@
             span.number {
                 display: inline-block;
                 width: 5%;
-                text-align: right;
+                text-align: center;
             }
 
             .number.current{
@@ -212,8 +212,8 @@
 
             span.love {
                 display: inline-block;
-                width: 5%;
-                text-align: right;
+                width: 10%;
+                line-height: 25px;
 
                 i{
                     font-size: 15px;
@@ -221,6 +221,7 @@
                     &:hover{
                         color: gray;
                     }
+                    margin-right: 5px;
                 }
             }
 
@@ -290,7 +291,6 @@
             span.action {
                 display: inline-block;
                 width: 10%;
-                padding-left: 40px;
             }
         }
 

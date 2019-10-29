@@ -16,6 +16,6 @@ export class HeaderService {
   }
 
   search(keyWord, type, offset) {
-    return this.http.get(`http://music.163.com/api/search/get?s=${keyWord}&type=${type}&total=true&limit=30&offset=${offset}`);
+    return this.http.get(`https://music.163.com/api/search/get?s=${keyWord}&type=${type}&total=true&limit=30&offset=${offset}`);
   }
 }
