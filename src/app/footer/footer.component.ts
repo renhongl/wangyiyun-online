@@ -24,6 +24,7 @@ export class FooterComponent implements OnInit, OnDestroy {
   volume: number;
   playingIndex = 0;
   playList: any;
+  rotation = 0;
 
   @Output()
   open = new EventEmitter();
@@ -37,6 +38,7 @@ export class FooterComponent implements OnInit, OnDestroy {
     this.volume = 5;
     this.checkStatus();
     this.listenEnded();
+    this.footerSer.player.next(this.player);
   }
 
   listenEnded() {
@@ -50,7 +52,7 @@ export class FooterComponent implements OnInit, OnDestroy {
       } else if (this.loopStatus === 1) { // single loop
         this.player.play();
       } else if (this.loopStatus === 2) { // random loop
-        let n = Number.parseInt((Math.random() * this.playList.length).toString());
+        const n = Number.parseInt((Math.random() * this.playList.length).toString());
         if (n === this.playingIndex) {
           this.player.play();
         } else {
@@ -88,14 +90,23 @@ export class FooterComponent implements OnInit, OnDestroy {
   }
 
   playThisMusic(item) {
-    this.footerSer.getSongDetail(item.id).subscribe(data => {
-      this.footerSer.songDetail.next(this.dataAdapter(data['data'][0]));
+    const newList = Object.assign([], this.playList);
+    newList.forEach(song => {
+      if (song.id === item.id) {
+        song.current = true;
+      } else {
+        song.current = false;
+      };
     });
+    this.homeSer.playList.next(newList);
+    // this.footerSer.getSongDetail(item.id).subscribe(data => {
+    //   this.footerSer.songDetail.next(this.dataAdapter(data['data'][0]));
+    // });
   }
 
   dataAdapter(data) {
-    let current = this.playList.filter(item => item.id === data.id)[0];
-    let ret = {
+    const current = this.playList.filter(item => item.id === data.id)[0];
+    const ret = {
       'id': data.id,
       'name': current.name,
       'author': current.author,
@@ -123,6 +134,13 @@ export class FooterComponent implements OnInit, OnDestroy {
           this.setIndex();
         };
       }
+      this.updateLyric(data['id']);
+    });
+  }
+
+  updateLyric(id) {
+    this.footerSer.getLyric(id).subscribe(data => {
+      this.footerSer.songLyric.next(data);
     });
   }
 
@@ -174,6 +192,9 @@ export class FooterComponent implements OnInit, OnDestroy {
   checkStatus() {
     this.checkTimer = interval(1000);
     this.checkTimer.subscribe(val => {
+      if (this.player && this.player.currentTime) {
+        this.footerSer.currentTime.next(this.player.currentTime);
+      }
       this.updateDurationSlider();
       if (this.player.ended && this.playing) {
         this.playing = false;

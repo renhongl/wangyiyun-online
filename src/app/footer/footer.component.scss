@@ -116,6 +116,12 @@
         }
     }
 
+    @keyframes rotate{
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
     .action{
         display: flex;
         justify-content: space-evenly;

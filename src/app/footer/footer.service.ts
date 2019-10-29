@@ -8,6 +8,9 @@ import { HttpClient } from '@angular/common/http';
 export class FooterService {
 
   songDetail = new BehaviorSubject({});
+  songLyric = new BehaviorSubject({});
+  currentTime = new BehaviorSubject(0);
+  player = new BehaviorSubject({});
 
   constructor(private http: HttpClient) { }
 
@@ -19,5 +22,7 @@ export class FooterService {
     return this.http.get(`https://api.imjad.cn/cloudmusic/?type=song&id=${id}`);
   }
 
-  
+  getLyric(id) {
+    return this.http.get(`https://api.imjad.cn/cloudmusic/?type=lyric&id=${id}`);
+  }
 }

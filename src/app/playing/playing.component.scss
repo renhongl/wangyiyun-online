@@ -27,10 +27,76 @@
         width: 100%;
         height: 100%;
         position: relative;
+        background: #00000030;
+
+        .title {
+            width: 40%;
+            height: 70px;
+            position: absolute;
+            left: 50%;
+            top: 30px;
+
+            .tit {
+                font-size: 20px;
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+
+            .zhuanji, .author{
+                color: #5b8be6;
+                display: inline-block;
+                width: 100px;
+            }
+        }
+
+        .lyric{
+            width: 30%;
+            height: 70%;
+            overflow: auto;
+            position: absolute;
+            left: 50%;
+            top: 100px;
+            // scroll-behavior: smooth;
+
+            .row{
+                height: 30px;
+                line-height: 30px;
+                color: #000;
+            }
+
+            span.time {
+                opacity: 0;
+            }
+        }
 
         .close-btn{
             position: absolute;
-            right: 0;
+            right: 20px;
+            top: 20px;
+            cursor: pointer;
+            border: 1px solid #bcbfbc;
+            width: 35px;
+            line-height: 30px;
+            height: 30px;
+            text-align: center;
+            border-radius: 3px;
+
+            &:hover{
+                color: gray;
+            }
+        }
+
+        .bar{
+            background: url(/assets/images/bar.png);
+            height: 140px;
+            width: 280px;
+            background-repeat: no-repeat;
+            position: absolute;
+            left: 30%;
+            top: -5px;
+            transform: scale(0.6, 0.6) rotate(0deg);
+            transform-origin: 35px 35px;
+            transition: all 0.5 ease-in-out;
         }
 
         .img{
@@ -38,7 +104,7 @@
             height: 300px;
             position: absolute;
             left: 20%;
-            top: 50px;
+            top: 72px;
             border-radius: 50%;
             background-size: cover !important;
             border: 50px solid #000;
