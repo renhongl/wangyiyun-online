@@ -131,6 +131,7 @@ export class FooterComponent implements OnInit, OnDestroy {
         this.player.oncanplay = () => {
           this.player.play();
           this.playing = true;
+          this.footerSer.playing.next(true);
           this.setIndex();
         };
       }
@@ -164,6 +165,7 @@ export class FooterComponent implements OnInit, OnDestroy {
         if (this.songDetail && this.songDetail.id === detail['data'][0]['id']) {
         } else {
           this.playing = false;
+          this.footerSer.playing.next(false);
         }
       });
     });
@@ -198,6 +200,7 @@ export class FooterComponent implements OnInit, OnDestroy {
       this.updateDurationSlider();
       if (this.player.ended && this.playing) {
         this.playing = false;
+        this.footerSer.playing.next(false);
       }
     });
   }
@@ -234,9 +237,11 @@ export class FooterComponent implements OnInit, OnDestroy {
     if (this.playing) {
       this.player.pause();
       this.playing = false;
+      this.footerSer.playing.next(false);
     } else {
       this.player.play();
       this.playing = true;
+      this.footerSer.playing.next(true);
     }
   }
 

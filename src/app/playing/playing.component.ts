@@ -15,7 +15,7 @@ export class PlayingComponent implements OnInit {
   songDetail: any;
   songLyric: any;
   currentTime: any;
-  player: any;
+  playing: any;
   checkTimer: any;
   rotation = 0;
 
@@ -34,23 +34,12 @@ export class PlayingComponent implements OnInit {
       this.moveLyric(data);
     });
 
-    this.footerSer.player.subscribe(data => {
-      this.player = data;
-      this.player.onplaying = (() => {
+    this.footerSer.playing.subscribe(data => {
+      this.playing = data;
+      if(this.playing) {
         this.start();
-      });
-    });
-
-    this.checkStatus();
-  }
-
-  checkStatus() {
-    this.checkTimer = interval(1000);
-    this.checkTimer.subscribe(val => {
-      if (this.player.paused || this.player.stoped || this.player.ended) {
-        this.stop();
       } else {
-        this.start();
+        this.stop();
       }
     });
   }
@@ -90,14 +79,18 @@ export class PlayingComponent implements OnInit {
   moveLyric(time) {
     const newTime = this.setMinuts(time);
     const current = document.querySelector('div[time="' + newTime + '"]');
+    let index = 0;
     if (current) {
-      Array.from(document.querySelectorAll('.lyric div')).forEach(item => {
+      Array.from(document.querySelectorAll('.lyric div')).forEach((item, i) => {
         item['style']['color'] = '#000';
+        if (item.getAttribute('time') === current.getAttribute('time')) {
+          index = i;
+        }
       });
-      current.scrollIntoView(true);
-      current['style']['color'] = '#fff';
-      const top = document.querySelector('.lyric').scrollTop;
-      document.querySelector('.lyric')['scrollTop'] = top - 100;
+      // current.scrollIntoView(true);
+      current['style']['color'] = '#5b8be6';
+      // const top = document.querySelector('.lyric').scrollTop;
+      document.querySelector('.lyric')['scrollTop'] = 30 * index - 50;
     }
   }
 

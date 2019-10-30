@@ -27,13 +27,13 @@
         width: 100%;
         height: 100%;
         position: relative;
-        background: #00000030;
+        background: #ffffffa3;
 
         .title {
             width: 40%;
             height: 70px;
             position: absolute;
-            left: 50%;
+            right: 100px;
             top: 30px;
 
             .tit {
@@ -45,18 +45,18 @@
             .zhuanji, .author{
                 color: #5b8be6;
                 display: inline-block;
-                width: 100px;
+                margin-right: 20px;
             }
         }
 
         .lyric{
-            width: 30%;
+            width: 40%;
             height: 70%;
             overflow: auto;
             position: absolute;
-            left: 50%;
+            right: 100px;
             top: 100px;
-            // scroll-behavior: smooth;
+            scroll-behavior: smooth;
 
             .row{
                 height: 30px;
@@ -92,7 +92,7 @@
             width: 280px;
             background-repeat: no-repeat;
             position: absolute;
-            left: 30%;
+            left: 250px;
             top: -5px;
             transform: scale(0.6, 0.6) rotate(0deg);
             transform-origin: 35px 35px;
@@ -103,7 +103,7 @@
             width: 300px;
             height: 300px;
             position: absolute;
-            left: 20%;
+            left: 115px;
             top: 72px;
             border-radius: 50%;
             background-size: cover !important;

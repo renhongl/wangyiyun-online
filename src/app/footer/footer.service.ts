@@ -11,6 +11,7 @@ export class FooterService {
   songLyric = new BehaviorSubject({});
   currentTime = new BehaviorSubject(0);
   player = new BehaviorSubject({});
+  playing = new BehaviorSubject(false);
 
   constructor(private http: HttpClient) { }
 

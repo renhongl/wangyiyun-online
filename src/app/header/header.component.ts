@@ -12,6 +12,7 @@ export class HeaderComponent implements OnInit {
   visible: boolean;
   results: any;
   searching: string;
+  electron: string;
 
   constructor(private headerSer: HeaderService, private router: Router) { }
 
@@ -23,6 +24,11 @@ export class HeaderComponent implements OnInit {
     this.headerSer.getSearchResult('all').subscribe(data => {
       this.results = data;
     });
+
+    if (window && window.process && window.process['type']) {
+      this.electron = window.process['type'];
+      console.log(this.electron);
+    }
   }
 
   searchSong(e) {
