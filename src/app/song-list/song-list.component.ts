@@ -42,6 +42,9 @@ export class SongListComponent implements OnInit {
 
   dataAdapter(data) {
     let playListData = data.playlist;
+    if (!playListData) {
+      return null;
+    }
     let ret = {
       'img': playListData.coverImgUrl,
       'category': playListData.name,

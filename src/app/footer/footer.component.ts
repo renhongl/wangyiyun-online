@@ -43,6 +43,7 @@ export class FooterComponent implements OnInit, OnDestroy {
 
   listenEnded() {
     this.player.onended = () => {
+      document.title = '网易云音乐';
       if (this.loopStatus === 0) {// list loop
         this.playingIndex++;
         if (this.playingIndex >= this.playList.length) {
@@ -136,10 +137,14 @@ export class FooterComponent implements OnInit, OnDestroy {
         };
       }
       this.updateLyric(data['id']);
+      document.title = this.songDetail.name;
     });
   }
 
   updateLyric(id) {
+    if (!id) {
+      return;
+    }
     this.footerSer.getLyric(id).subscribe(data => {
       this.footerSer.songLyric.next(data);
     });

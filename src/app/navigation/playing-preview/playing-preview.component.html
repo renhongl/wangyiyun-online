@@ -2,7 +2,14 @@
   <div class="logo" [style.background]="'url(' + songDetail.preview + ')'" (click)="openPlaying()">
 
   </div>
-  <div class="expand" (click)="openPlaying()"><i class="fas fa-expand-arrows-alt"></i></div>
+  <div class="expand" (click)="openPlaying()">
+    <i class="material-icons forward">
+      arrow_forward
+    </i>
+    <i class="material-icons back">
+      arrow_back
+    </i>
+  </div>
   <div class="infor">
     <div class="name">
       {{songDetail.name}}

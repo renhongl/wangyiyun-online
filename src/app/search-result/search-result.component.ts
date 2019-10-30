@@ -25,6 +25,14 @@ export class SearchResultComponent implements OnInit {
   getResult(keyWord) {
     this.keyWord = keyWord;
     this.headerSer.search(keyWord, this.type, 1).subscribe(data => {
+      this.searchResult = {songs: []};
+      this.searchResult = this.dataAdapter(data['result']);
+    });
+  }
+
+  changePage(e) {
+    this.headerSer.search(this.keyWord, this.type, e.pageIndex + 1).subscribe(data => {
+      this.searchResult = {songs: []};
       this.searchResult = this.dataAdapter(data['result']);
     });
   }
@@ -59,6 +67,7 @@ export class SearchResultComponent implements OnInit {
 
   listenSearchResult() {
     this.headerSer.searchResult.subscribe(data => {
+      this.searchResult = {songs: []};
       this.searchResult = data;
     });
   }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from './home.service';
+import NoSleep from 'nosleep.js';
 
 @Component({
   selector: 'app-home',
@@ -17,6 +18,12 @@ export class HomeComponent implements OnInit {
     this.homeSer.getPlayList('0001').subscribe(data => {
       this.homeSer.playList.next(data['songs']);
     });
+
+    const noSleep = new NoSleep();
+    document.addEventListener('click', function enableNoSleep() {
+      document.removeEventListener('click', enableNoSleep, false);
+      noSleep.enable();
+    }, false);
   }
 
   openPlaying(): void {
