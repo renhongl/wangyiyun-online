@@ -25,10 +25,10 @@ export class HeaderComponent implements OnInit {
       this.results = data;
     });
 
-    if (window && window.process && window.process['type']) {
-      this.electron = window.process['type'];
-      console.log(this.electron);
-    }
+    // if (window && window.process && window.process['type']) {
+    //   this.electron = window.process['type'];
+    //   console.log(this.electron);
+    // }
   }
 
   searchSong(e) {
