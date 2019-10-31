@@ -1,5 +1,5 @@
 <div class="home">
-  <div class="playing" *ngIf="playing">
+  <div class="playing" *ngIf="playing" [class.before-close]="beforeClose">
     <app-playing (close)="closePlaying()"></app-playing>
   </div>
   <div class="left">

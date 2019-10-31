@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit {
 
   playing: boolean;
   playList: boolean;
+  beforeClose: boolean;
 
   constructor(private homeSer: HomeService) { }
 
@@ -31,7 +32,11 @@ export class HomeComponent implements OnInit {
   }
 
   closePlaying(): void {
-    this.playing = false;
+    this.beforeClose = true;
+    setTimeout(() => {
+      this.playing = false;
+      this.beforeClose = false;
+    }, 1000);
   }
 
   openPlayList(): void {

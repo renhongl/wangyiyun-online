@@ -44,23 +44,23 @@
   </div>
 
   <div class="action">
-    <i class="material-icons" *ngIf="loopStatus === 1" (click)="updateLoopStatus()">
+    <i class="material-icons" *ngIf="loopStatus === 1" (click)="updateLoopStatus()" title="单曲循环">
       repeat_one
     </i>
 
-    <i class="material-icons" *ngIf="loopStatus === 0" (click)="updateLoopStatus()">
+    <i class="material-icons" *ngIf="loopStatus === 0" (click)="updateLoopStatus()" title="列表循环">
       playlist_play
     </i>
 
-    <i class="material-icons" *ngIf="loopStatus === 2" (click)="updateLoopStatus()">
+    <i class="material-icons" *ngIf="loopStatus === 2" (click)="updateLoopStatus()" title="随机播放">
       shuffle
     </i>
 
-    <i class="material-icons">
+    <i class="material-icons" title="歌词">
       menu_book
     </i>
 
-    <i class="material-icons" (click)="openPlayList()">
+    <i class="material-icons" (click)="openPlayList()" title="播放列表">
       list
     </i>
 

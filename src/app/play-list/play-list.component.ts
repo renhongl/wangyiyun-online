@@ -60,12 +60,35 @@ export class PlayListComponent implements OnInit {
     this.playThisMusic(item);
   }
 
-  playThisMusic(item) {
-    this.footSer.getSongDetail(item.id).subscribe(data => {
-      this.footSer.songDetail.next(this.dataAdapter(data['data'][0]));
-      this.currentSong = this.getCurrentSong(data['data'][0]);
-      this.message.success(`正在播放：${this.currentSong.name}`);
+  unique(list) {
+    const temp = [];
+    list.forEach(item => {
+      let has = false;
+      temp.forEach((ite, index) => {
+        if (item.id === ite.id) {
+          has = true;
+          if (item.current) {
+            temp[index] = item;
+          }
+        }
+      });
+      if (!has) {
+        temp.push(item);
+      }
     });
+    return temp;
+  }
+
+  playThisMusic(song) {
+    const newSong = Object.assign({}, song);
+    newSong.current = true;
+    const newList = Object.assign([], this.playList);
+    newList.forEach(item => {
+      item.current = false;
+    });
+    newList.push(newSong);
+    this.homeSer.playList.next(this.unique(newList));
+    this.message.success(`正在播放：${song.name}`);
   }
 
   getCurrentSong(data) {
@@ -79,7 +102,7 @@ export class PlayListComponent implements OnInit {
   }
 
   setCurrent(id) {
-    let newList = Object.assign([], this.playList);
+    const newList = Object.assign([], this.playList);
     newList.forEach(item => {
       if (item.id === id) {
         item.current = true;
@@ -91,8 +114,8 @@ export class PlayListComponent implements OnInit {
   }
 
   dataAdapter(data) {
-    let current = this.playList.filter(item => item.id === data.id)[0];
-    let ret = {
+    const current = this.playList.filter(item => item.id === data.id)[0];
+    const ret = {
       'id': data.id,
       'name': current.name,
       'author': current.author,

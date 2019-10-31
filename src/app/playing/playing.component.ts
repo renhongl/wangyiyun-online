@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FooterService } from '../footer/footer.service';
 import { interval } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-playing',
@@ -18,8 +19,9 @@ export class PlayingComponent implements OnInit {
   playing: any;
   checkTimer: any;
   rotation = 0;
+  starting: boolean;
 
-  constructor(private footerSer: FooterService) { }
+  constructor(private footerSer: FooterService, private router: Router) { }
 
   ngOnInit() {
     this.footerSer.songDetail.subscribe(data => {
@@ -36,11 +38,17 @@ export class PlayingComponent implements OnInit {
 
     this.footerSer.playing.subscribe(data => {
       this.playing = data;
-      if(this.playing) {
+      if(this.playing && !this.starting) {
         this.start();
+        this.starting = true;
       } else {
         this.stop();
+        this.starting = false;
       }
+    });
+
+    this.router.events.subscribe(data => {
+      this.closePanel();
     });
   }
 

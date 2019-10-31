@@ -1,24 +1,24 @@
-<div class="song-bg" [style.background]="'url(' + songDetail.preview + ')'">
-    <div class="fog"></div>
-</div>
-
-<div class="song-detail">
-    <div class="detail-con">
-        <div class="close-btn"  (click)="closePanel()">
-            <i class="fas fa-compress-arrows-alt"></i>
-        </div>
-        <div class="img" [style.background]="'url(' + songDetail.preview + ')'"></div>
-        <div class="bar"></div>
-        <div class="title">
-            <div class="tit">{{songDetail.name}}</div>
-            <span>专辑：<span class="zhuanji">{{songDetail.zhuanji}}</span></span>
-            <span>歌手：<span class="author">{{songDetail.author}}</span></span>
-        </div>
-        <div class="lyric">
-            <div *ngFor="let row of songLyric.lrc.lyric.split('[')" class="row" [attr.time]="row.split(']')[0].split('.')[0]">
-                <span class="ly" [attr.time]="row.split(']')[0].split('.')[0]">{{row.split(']')[1]}}</span>
+    <div class="song-bg" [style.background]="'url(' + songDetail.preview + ')'">
+        <div class="fog"></div>
+    </div>
+    
+    <div class="song-detail">
+        <div class="detail-con">
+            <div class="close-btn"  (click)="closePanel()">
+                <i class="fas fa-compress-arrows-alt"></i>
             </div>
-            <div class="row" *ngFor="let i of [1, 2, 3, 4, 5, 6]"></div>
+            <div class="img" [style.background]="'url(' + songDetail.preview + ')'"></div>
+            <div class="bar"></div>
+            <div class="title">
+                <div class="tit">{{songDetail.name}}</div>
+                <span>专辑：<span class="zhuanji">{{songDetail.zhuanji}}</span></span>
+                <span>歌手：<span class="author">{{songDetail.author}}</span></span>
+            </div>
+            <div class="lyric">
+                <div *ngFor="let row of songLyric.lrc.lyric.split('[')" class="row" [attr.time]="row.split(']')[0].split('.')[0]">
+                    <span class="ly" [attr.time]="row.split(']')[0].split('.')[0]">{{row.split(']')[1]}}</span>
+                </div>
+                <div class="row" *ngFor="let i of [1, 2, 3, 4, 5, 6]"></div>
+            </div>
         </div>
     </div>
-</div>

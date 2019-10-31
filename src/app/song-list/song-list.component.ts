@@ -148,16 +148,13 @@ export class SongListComponent implements OnInit {
   }
 
   playThisSong(song) {
-    let newSong = Object.assign({}, song);
+    const newSong = Object.assign({}, song);
     newSong.current = true;
     const newList = Object.assign([], this.playList);
     newList.forEach(item => {
       item.current = false;
     });
     newList.push(newSong);
-    newList.forEach(item => {
-      console.log(item.name + '-' + item.current);
-    })
     this.homeSer.playList.next(this.unique(newList));
     this.message.success(`正在播放：${song.name}`);
   }
