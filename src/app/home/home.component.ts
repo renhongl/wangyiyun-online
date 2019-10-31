@@ -21,8 +21,8 @@ export class HomeComponent implements OnInit {
     });
 
     const noSleep = new NoSleep();
-    document.addEventListener('click', function enableNoSleep() {
-      document.removeEventListener('click', enableNoSleep, false);
+    document.addEventListener('touchstart', function enableNoSleep() {
+      document.removeEventListener('touchstart', enableNoSleep, false);
       noSleep.enable();
     }, false);
   }
