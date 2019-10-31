@@ -18,6 +18,7 @@ export class PlayListComponent implements OnInit {
   currentSong: any;
   preventSimpleClick: boolean;
   timer: any;
+  historyList: any;
 
   constructor(private homeSer: HomeService, private footSer: FooterService, private message: NzMessageService) { }
 
@@ -28,6 +29,10 @@ export class PlayListComponent implements OnInit {
 
     this.footSer.songDetail.subscribe(data => {
       this.currentSong = data;
+    });
+
+    this.homeSer.historyList.subscribe(data => {
+      this.historyList = data;
     });
   }
 
@@ -77,6 +82,29 @@ export class PlayListComponent implements OnInit {
       }
     });
     return temp;
+  }
+
+  removeThisMusic(song) {
+    if (song.current) {
+      let newList = Object.assign([], this.playList);
+      newList = newList.filter(item => item.id !== song.id);
+      newList.forEach((item, index) => {
+        if (0 === index) {
+          item.current = true;
+        } else {
+          item.current = false;
+        }
+      });
+      this.homeSer.playList.next(this.unique(newList));
+    } else {
+      let newList = Object.assign([], this.playList);
+      newList = newList.filter(item => item.id !== song.id);
+      this.homeSer.playList.next(this.unique(newList));
+    }
+  }
+
+  clearAll() {
+    this.homeSer.playList.next([]);
   }
 
   playThisMusic(song) {

@@ -8,6 +8,7 @@ import { BehaviorSubject } from 'rxjs';
 export class HomeService {
 
   playList = new BehaviorSubject([]);
+  historyList = new BehaviorSubject([]);
 
   constructor(private http: HttpClient) { }
 

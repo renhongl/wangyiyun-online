@@ -25,6 +25,7 @@ export class FooterComponent implements OnInit, OnDestroy {
   playingIndex = 0;
   playList: any;
   rotation = 0;
+  historyList: any;
 
   @Output()
   open = new EventEmitter();
@@ -39,6 +40,13 @@ export class FooterComponent implements OnInit, OnDestroy {
     this.checkStatus();
     this.listenEnded();
     this.footerSer.player.next(this.player);
+    this.listenHistoryList();
+  }
+
+  listenHistoryList() {
+    this.homeSer.historyList.subscribe(data => {
+      this.historyList = data;
+    });
   }
 
   listenEnded() {
@@ -97,12 +105,10 @@ export class FooterComponent implements OnInit, OnDestroy {
         song.current = true;
       } else {
         song.current = false;
-      };
+      }
     });
     this.homeSer.playList.next(newList);
-    // this.footerSer.getSongDetail(item.id).subscribe(data => {
-    //   this.footerSer.songDetail.next(this.dataAdapter(data['data'][0]));
-    // });
+    this.homeSer.historyList.next(this.historyList.concat([item]));
   }
 
   dataAdapter(data) {
@@ -127,6 +133,7 @@ export class FooterComponent implements OnInit, OnDestroy {
       if (this.songDetail && this.songDetail.id === data['id']) {
         return;
       }
+      
       this.songDetail = data;
       if (this.player && this.playing !== undefined) {
         this.player.oncanplay = () => {
@@ -164,7 +171,8 @@ export class FooterComponent implements OnInit, OnDestroy {
         return;
       }
       this.playList = data;
-      const id = this.getCurrentId(data);
+      const { id, curr } = this.getCurrentId(data);
+      this.homeSer.historyList.next(this.historyList.concat([curr]));
       this.footerSer.getSongDetail(id).subscribe(detail => {
         this.footerSer.songDetail.next(this.dataAdapter(detail['data'][0]));
         if (this.songDetail && this.songDetail.id === detail['data'][0]['id']) {
@@ -178,14 +186,19 @@ export class FooterComponent implements OnInit, OnDestroy {
 
   getCurrentId(data) {
     let ret = data[0].id;
+    let curr = data[0];
     this.playingIndex = 0;
     data.forEach((item, index) => {
       if (item.current === true) {
         ret = item.id;
+        curr = item;
         this.playingIndex = index;
       }
     });
-    return ret;
+    return {
+      id: ret,
+      curr: curr
+    };
   }
 
   openPlayList() {

@@ -10,12 +10,22 @@
             height: 100%;
         }
 
+        .history{
+            height: 100%;
+        }
+
         .total {
             height: 30px;
             line-height: 30px;
             padding-left: 30px;
             font-size: 12px;
             border-bottom: 1px solid gainsboro;
+
+            span.clear-all {
+                float: right;
+                margin-right: 5px;
+                cursor: pointer;
+            }
         }
 
         .item-con{
@@ -51,10 +61,14 @@
 
                 .play {
                     display: inline-block;
-                    width: 5%;
+                    width: 10%;
 
                     &:hover{
                         color: gray;
+                    }
+
+                    i{
+                        margin-right: 5px;
                     }
                 }
 
