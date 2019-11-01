@@ -1,0 +1,58 @@
+[
+    {
+        "id": "0001",
+        "name": "曹操",
+        "desc": "歌词 特别 林俊杰",
+        "love": 2767976,
+        "hot": true,
+        "up": false
+    },
+    {
+        "id": "0001",
+        "name": "林俊杰",
+        "desc": "请立刻分享这首歌给心里的ta",
+        "love": 543232,
+        "hot": true,
+        "up": true
+    },
+    {
+        "id": "0001",
+        "name": "周杰伦",
+        "desc": "对小鬼的偏爱，真的很明目张胆",
+        "love": 764353,
+        "hot": false,
+        "up": false
+    },
+    {
+        "id": "0001",
+        "name": "王菲",
+        "desc": "一首包含了闽南语的歌",
+        "love": 43223,
+        "hot": false,
+        "up": false
+    },
+    {
+        "id": "0001",
+        "name": "艾薇儿",
+        "desc": "请立刻分享这首歌给心里的ta",
+        "love": 543232,
+        "hot": true,
+        "up": false
+    },
+    {
+        "id": "0001",
+        "name": "日语歌",
+        "desc": "歌词 特别 吴青峰",
+        "love": 2767976,
+        "hot": true,
+        "up": false
+    },
+    {
+        "id": "0001",
+        "name": "韩语歌",
+        "desc": "请立刻分享这首歌给心里的ta",
+        "love": 543232,
+        "hot": true,
+        "up": true
+    }
+]

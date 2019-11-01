@@ -1,0 +1,13 @@
+{
+    "img": "/wangyiyun-online/assets/images/s1.jpg",
+    "category": "华语",
+    "number": 32,
+    "playNumber": "30万",
+    "author": "Tataaaa",
+    "createDate": "2019-08-27",
+    "label": ["华语", "流行", "思念"],
+    "desc": "忘却，真是天下最简单又最难的事了。",
+    "songs": [
+        {"id":504624714,"name":"青柠","author":"徐秉龙","preview":"https://p2.music.126.net/CFWxtFlJK3qs-Fx-TUfMnQ==/109951163020971473.jpg","source":"每日歌曲推荐","zhuanji":"青柠","lyric":"","url":"https://m8.music.126.net/20191024155107/34d1f891099c534f631c919f50a75ca2/ymusic/2e63/9e00/b588/89f944885717fc8951bffc7b4bb5261c.mp3","time":"03:19","vip":true}
+    ]
+}

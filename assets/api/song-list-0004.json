@@ -1,0 +1,48 @@
+{
+    "img": "/wangyiyun-online/assets/images/s4.jpg",
+    "category": "古风",
+    "number": 32,
+    "playNumber": "30万",
+    "author": "Tataaaa",
+    "createDate": "2019-08-27",
+    "label": ["华语", "流行", "思念"],
+    "desc": "忘却，真是天下最简单又最难的事了。",
+    "songs": [
+        {
+            "id": "0005",
+            "name": "Anna F - Too Far",
+            "author": "Anna F",
+            "preview": "/wangyiyun-online/assets/images/s2.jpg",
+            "source": "每日歌曲推荐",
+            "zhuanji": "Fortunate Fall",
+            "lyric": "",
+            "url": "/wangyiyun-online/assets/music/Anna F - Too Far.mp3",
+            "time": "02:25",
+            "vip": true 
+        },
+        {
+            "id": "0006",
+            "name": "郑少秋 - 笑看风云",
+            "author": "郑少秋",
+            "preview": "/wangyiyun-online/assets/images/s2.jpg",
+            "source": "每日歌曲推荐",
+            "zhuanji": "笑看风云",
+            "lyric": "",
+            "url": "/wangyiyun-online/assets/music/郑少秋 - 笑看风云.mp3",
+            "time": "02:25",
+            "vip": true 
+        },
+        {
+            "id": "0004",
+            "name": "CANNIE(晴子) - 倔强",
+            "author": "晴子",
+            "preview": "/wangyiyun-online/assets/images/s2.jpg",
+            "source": "每日歌曲推荐",
+            "zhuanji": "Mayday Acoustic Cover",
+            "lyric": "",
+            "url": "/wangyiyun-online/assets/music/CANNIE(晴子) - 倔强（Cover 五月天 Acappella Ver.）.mp3",
+            "time": "02:25",
+            "vip": true 
+        }
+    ]
+}
