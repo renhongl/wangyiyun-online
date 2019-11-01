@@ -8,7 +8,7 @@
         position: absolute;
         left: 0;
         overflow: hidden;
-        // top: 60px;
+        // top: 50px;
         // height: calc(100% - 120px);
         // width: 100%;
 
@@ -24,7 +24,7 @@
 
     .left{
         width: 250px;
-        height: calc(100% - 60px);
+        height: calc(100% - 50px);
         border-right: 1px solid #e0e0e0;
         float: left;
         box-sizing: border-box;
@@ -34,7 +34,7 @@
 
     .right{
         width: calc(100% - 250px);
-        height: calc(100% - 60px);
+        height: calc(100% - 50px);
         float: left;
         background: #fff;
         padding: 0 20px;
@@ -42,7 +42,7 @@
     }
 
     .bottom{
-        height: 60px;
+        height: 50px;
         width: 100%;
         clear: both;
         box-sizing: border-box;
@@ -52,7 +52,7 @@
 
     .play-list{
         position: absolute;
-        bottom: 60px;
+        bottom: 50px;
         right: 0;
         width: 500px;
         height: 70%;
@@ -72,7 +72,7 @@
     0%{
         height: calc(100% - 120px);
         width: 100%;
-        top: 60px;
+        top: 50px;
         left: 0;
     }
     50%{
@@ -84,7 +84,7 @@
     100%{
         width: 0;
         height: 0;
-        top: calc(100% - 60px);
+        top: calc(100% - 50px);
         left: 0;
     }
 }
@@ -93,7 +93,7 @@
     0%{
         width: 0;
         height: 0;
-        top: calc(100% - 60px);
+        top: calc(100% - 50px);
         left: 0;
     }
     50%{
@@ -103,9 +103,9 @@
         left: 50%;
     }
     100%{
-        height: calc(100% - 120px);
+        height: calc(100% - 100px);
         width: 100%;
-        top: 60px;
+        top: 50px;
         left: 0;
     }
 }

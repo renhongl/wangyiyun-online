@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, OnDestroy, Output, EventEmitter } from '@
 import { FooterService } from './footer.service';
 import { interval } from 'rxjs';
 import { HomeService } from '../home/home.service';
+import { HeaderService } from '../header/header.service';
 
 @Component({
   selector: 'app-footer',
@@ -26,11 +27,12 @@ export class FooterComponent implements OnInit, OnDestroy {
   playList: any;
   rotation = 0;
   historyList: any;
+  theme: string;
 
   @Output()
   open = new EventEmitter();
 
-  constructor(private footerSer: FooterService, private homeSer: HomeService) { }
+  constructor(private footerSer: FooterService, private homeSer: HomeService, private headerSer: HeaderService) { }
 
   ngOnInit() {
     this.listenPlayList();
@@ -41,6 +43,17 @@ export class FooterComponent implements OnInit, OnDestroy {
     this.listenEnded();
     this.footerSer.player.next(this.player);
     this.listenHistoryList();
+    this.listenTheme();
+  }
+
+  listenTheme() {
+    this.headerSer.theme.subscribe(data => {
+      this.theme = data;
+      let style = document.createElement('style');
+      style.type = 'text/css';
+      style.innerHTML = `.mat-primary .mat-slider-track-fill, .mat-primary .mat-slider-thumb, .mat-primary .mat-slider-thumb-label{background-color: ${data} !important}`;
+      document.getElementsByTagName('head')[0].appendChild(style);
+    });
   }
 
   listenHistoryList() {
@@ -133,7 +146,7 @@ export class FooterComponent implements OnInit, OnDestroy {
       if (this.songDetail && this.songDetail.id === data['id']) {
         return;
       }
-      
+
       this.songDetail = data;
       if (this.player && this.playing !== undefined) {
         this.player.oncanplay = () => {
@@ -144,7 +157,7 @@ export class FooterComponent implements OnInit, OnDestroy {
         };
       }
       this.updateLyric(data['id']);
-      document.title = this.songDetail.name;
+      document.title = this.songDetail.name + ' - ' + this.songDetail.author;
     });
   }
 

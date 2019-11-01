@@ -1,4 +1,4 @@
-<div class="header">
+<div class="header" [style.background]="theme">
   <div class="logo">
     <i class="fas fa-podcast"></i>
     <span class="name">网易云音乐</span>
@@ -13,6 +13,9 @@
     <input type="text" class="search" [(ngModel)]="searching" placeholder="搜索音乐，视频，歌词，电台" (click)="change($event)" (change)="searchSong($event)">
   </div>
 
+  <div class="theme-con" *ngIf="showTheme">
+    <div class="color" *ngFor="let color of colors" [attr.color]="color" (click)="changeTheme(color)" [style.background]="color"></div>
+  </div>
 
   <div *ngIf="visible" class="search-list">
     <div class="list">
@@ -36,11 +39,11 @@
 
   <div class="tool-bar">
     <div class="login">
-      <i class="fas fa-user-circle"></i>
-      <span>未登陆</span>
-      <i class="fas fa-sort-down"></i>
+      <!-- <i class="fas fa-user-circle"></i> -->
+      <!-- <span>个人学习使用</span> -->
+      <!-- <i class="fas fa-sort-down"></i> -->
     </div>
-    <i class="fas fa-tshirt" title="皮肤"></i>
+    <i class="fas fa-tshirt" title="皮肤" (click)="toggleThemeCon()"></i>
     <i class="fas fa-envelope"></i>
     <i class="fas fa-cog"></i>
     <i *ngIf="electron" class="fas fa-times close-win" (click)="close()" title="关闭"></i>

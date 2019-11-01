@@ -56,7 +56,7 @@
                 .playing {
                     display: inline-block;
                     width: 5%;
-                    color: #5b8be6;
+                    // color: #5b8be6;
                 }
 
                 .play {
@@ -64,11 +64,15 @@
                     width: 10%;
 
                     &:hover{
-                        color: gray;
+                        color: #000;
                     }
 
                     i{
                         margin-right: 5px;
+                        color: #a7a7a7;
+                        &:hover{
+                            color: #000;
+                        }
                     }
                 }
 

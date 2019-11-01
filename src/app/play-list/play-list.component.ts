@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { HomeService } from '../home/home.service';
 import { FooterService } from '../footer/footer.service';
 import { NzMessageService } from 'ng-zorro-antd/message';
+import { HeaderService } from '../header/header.service';
 
 @Component({
   selector: 'app-play-list',
@@ -19,8 +20,13 @@ export class PlayListComponent implements OnInit {
   preventSimpleClick: boolean;
   timer: any;
   historyList: any;
+  theme: string;
 
-  constructor(private homeSer: HomeService, private footSer: FooterService, private message: NzMessageService) { }
+  constructor(
+    private homeSer: HomeService,
+    private footSer: FooterService,
+    private message: NzMessageService,
+    private headerSer: HeaderService) { }
 
   ngOnInit() {
     this.homeSer.playList.subscribe(data => {
@@ -32,7 +38,11 @@ export class PlayListComponent implements OnInit {
     });
 
     this.homeSer.historyList.subscribe(data => {
-      this.historyList = data;
+      this.historyList = this.unique(data);
+    });
+
+    this.headerSer.theme.subscribe(data => {
+      this.theme = data;
     });
   }
 

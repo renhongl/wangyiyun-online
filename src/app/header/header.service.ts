@@ -8,6 +8,7 @@ import { BehaviorSubject } from 'rxjs';
 export class HeaderService {
 
   searchResult = new BehaviorSubject([]);
+  theme = new BehaviorSubject('#e64a19');
 
   constructor(private http: HttpClient) { }
 

@@ -15,6 +15,9 @@ export class HeaderComponent implements OnInit {
   results: any;
   searching: string;
   electron: boolean;
+  theme: string;
+  colors = ['#d32f2f', '#c2185b', '#7b1fa2', '#512da8', '#303f9f', '#1976d2', '#0288d1', '#0097a7', '#00796b', '#388e3c', '#fbc02d', '#f57c00', '#e64a19', '#5d4037', '#616161', '#424242'];
+  showTheme: boolean;
 
   constructor(private headerSer: HeaderService, private router: Router, private electronSer: ElectronService) { }
 
@@ -28,6 +31,14 @@ export class HeaderComponent implements OnInit {
     });
 
     this.electron = isElectron();
+
+    this.headerSer.theme.subscribe(data => {
+      this.theme = data;
+      let style = document.createElement('style');
+      style.type = 'text/css';
+      style.innerHTML = `.mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar{background-color: ${data} !important}.recommend .selected{border-left: 4px solid ${data} !important}`;
+      document.getElementsByTagName('head')[0].appendChild(style);
+    });
   }
 
   searchSong(e) {
@@ -55,5 +66,13 @@ export class HeaderComponent implements OnInit {
 
   close() {
     this.electronSer.ipcRenderer.sendSync('close');
+  }
+
+  changeTheme(value) {
+    this.headerSer.theme.next(value);
+  }
+
+  toggleThemeCon() {
+    this.showTheme = !this.showTheme;
   }
 }

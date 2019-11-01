@@ -4,6 +4,7 @@ import { FooterComponent } from './footer.component';
 
 import { UiModule } from '../share/ui.module';
 import { FormsModule } from '@angular/forms';
+import { HeaderModule } from '../header/header.module';
 
 @NgModule({
   declarations: [FooterComponent],

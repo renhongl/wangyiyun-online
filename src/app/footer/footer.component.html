@@ -1,22 +1,22 @@
 <div class="footer">
   <audio [src]="songDetail.url" #playerRef></audio>
   <div class="control">
-    <div class="before" (click)="before()">
+    <div class="before" (click)="before()" [style.background]="theme">
       <i class="material-icons">
         skip_previous
       </i>
     </div>
 
-    <div class="pause" (click)="play()">
+    <div class="pause" (click)="play()" [style.background]="theme">
       <i *ngIf="!playing" class="material-icons">
         play_arrow
       </i>
-      <i *ngIf="playing" class="material-icons">
+      <i *ngIf="playing" class="material-icons" [style.background]="theme">
         pause
       </i>
     </div>
 
-    <div class="after" (click)="after()">
+    <div class="after" (click)="after()"  [style.background]="theme">
       <i class="material-icons">
         skip_next
       </i>

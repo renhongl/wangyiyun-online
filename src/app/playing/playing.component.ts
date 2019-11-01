@@ -38,9 +38,11 @@ export class PlayingComponent implements OnInit {
 
     this.footerSer.playing.subscribe(data => {
       this.playing = data;
-      if(this.playing && !this.starting) {
-        this.start();
-        this.starting = true;
+      if(this.playing) {
+        if (!this.starting) {
+          this.start();
+          this.starting = true;
+        }
       } else {
         this.stop();
         this.starting = false;
@@ -53,7 +55,7 @@ export class PlayingComponent implements OnInit {
   }
 
   start() {
-    if (this.rotation < 35) {
+    if (this.rotation <= 38) {
       if (document.querySelector('.bar')) {
         document.querySelector('.bar')['style'].transform = `scale(0.6, 0.6) rotate(${this.rotation++}deg)`;
         requestAnimationFrame(() => {
@@ -70,7 +72,7 @@ export class PlayingComponent implements OnInit {
   }
 
   stop() {
-    if (this.rotation > 0) {
+    if (this.rotation >= 0) {
       document.querySelector('.bar')['style'].transform = `scale(0.6, 0.6) rotate(${this.rotation--}deg)`;
       requestAnimationFrame(() => {
         this.stop();
@@ -96,7 +98,7 @@ export class PlayingComponent implements OnInit {
         }
       });
       // current.scrollIntoView(true);
-      current['style']['color'] = '#5b8be6';
+      current['style']['color'] = '#fff';
       // const top = document.querySelector('.lyric').scrollTop;
       document.querySelector('.lyric')['scrollTop'] = 30 * index - 50;
     }

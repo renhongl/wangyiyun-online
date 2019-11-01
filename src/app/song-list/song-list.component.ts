@@ -4,6 +4,7 @@ import { SongListService } from './song-list.service';
 import { HomeService } from '../home/home.service';
 import { FooterService } from '../footer/footer.service';
 import { NzMessageService } from 'ng-zorro-antd/message';
+import { HeaderService } from '../header/header.service';
 
 @Component({
   selector: 'app-song-list',
@@ -17,13 +18,15 @@ export class SongListComponent implements OnInit {
     private songListSer: SongListService,
     private homeSer: HomeService,
     private footSer: FooterService,
-    private message: NzMessageService) { }
+    private message: NzMessageService,
+    private headerSer: HeaderService) { }
 
   songList: any;
   preventSimpleClick: boolean;
   timer: any;
   currentSong: any;
   playList: any;
+  theme: string;
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
@@ -37,6 +40,10 @@ export class SongListComponent implements OnInit {
 
     this.homeSer.playList.subscribe(data => {
       this.playList = data;
+    });
+
+    this.headerSer.theme.subscribe(data => {
+      this.theme = data;
     });
   }
 

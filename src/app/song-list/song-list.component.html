@@ -13,8 +13,8 @@
       {{songList.createDate}} 创建
     </div>
     <div class="actions">
-      <div class="play-all">
-        <div class="left" (click)="playThisList(-1)">
+      <div class="play-all" [style.background]="theme">
+        <div class="left" (click)="playThisList(-1)"  [style.background]="theme">
           <i class="material-icons">
             play_circle_outline
           </i>播放全部</div>
@@ -50,7 +50,7 @@
         </div>
         <div class="song-item" *ngFor="let song of songList.songs; let i = index" (dblclick)="doubleClick(song.id)">
           <span class="number" *ngIf="song.id !== currentSong.id">{{i + 1}}</span>
-          <span class="number current" *ngIf="song.id === currentSong.id"><i class="fas fa-headphones"></i></span>
+          <span class="number current" *ngIf="song.id === currentSong.id" [style.color]="theme"><i class="fas fa-headphones"></i></span>
           <span class="love">
             <i class="far fa-heart"></i>
             <i class="far fa-play-circle" title="播放" (click)="playThisSong(song)"></i>
