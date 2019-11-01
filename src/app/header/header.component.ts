@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HeaderService } from './header.service';
 import { Router } from '@angular/router';
+import isElectron from 'is-electron';
+import { ElectronService } from 'ngx-electron';
 
 @Component({
   selector: 'app-header',
@@ -12,9 +14,9 @@ export class HeaderComponent implements OnInit {
   visible: boolean;
   results: any;
   searching: string;
-  electron: string;
+  electron: boolean;
 
-  constructor(private headerSer: HeaderService, private router: Router) { }
+  constructor(private headerSer: HeaderService, private router: Router, private electronSer: ElectronService) { }
 
   ngOnInit() {
     document.body.addEventListener('click', (e) => {
@@ -25,10 +27,7 @@ export class HeaderComponent implements OnInit {
       this.results = data;
     });
 
-    // if (window && window.process && window.process['type']) {
-    //   this.electron = window.process['type'];
-    //   console.log(this.electron);
-    // }
+    this.electron = isElectron();
   }
 
   searchSong(e) {
@@ -52,5 +51,9 @@ export class HeaderComponent implements OnInit {
   change(e): void {
     this.visible = !this.visible;
     e.stopPropagation();
+  }
+
+  close() {
+    this.electronSer.ipcRenderer.sendSync('close');
   }
 }

@@ -40,8 +40,9 @@
       <span>未登陆</span>
       <i class="fas fa-sort-down"></i>
     </div>
-    <i class="fas fa-tshirt"></i>
+    <i class="fas fa-tshirt" title="皮肤"></i>
     <i class="fas fa-envelope"></i>
     <i class="fas fa-cog"></i>
+    <i *ngIf="electron" class="fas fa-times close-win" (click)="close()" title="关闭"></i>
   </div>
 </div>
